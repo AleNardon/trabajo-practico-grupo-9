@@ -36,19 +36,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(123, 33);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(151, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 26);
+            this.label1.Size = new System.Drawing.Size(196, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "Bienvenido!";
             // 
             // btnLogIn
             // 
             this.btnLogIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogIn.Location = new System.Drawing.Point(119, 93);
+            this.btnLogIn.Location = new System.Drawing.Point(158, 124);
             this.btnLogIn.Name = "btnLogIn";
-            this.btnLogIn.Size = new System.Drawing.Size(130, 44);
+            this.btnLogIn.Size = new System.Drawing.Size(189, 44);
             this.btnLogIn.TabIndex = 1;
             this.btnLogIn.Text = "Iniciar Sesion";
             this.btnLogIn.UseVisualStyleBackColor = true;
@@ -57,25 +57,26 @@
             // btnRegister
             // 
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.Location = new System.Drawing.Point(119, 157);
+            this.btnRegister.Location = new System.Drawing.Point(158, 196);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(130, 44);
+            this.btnRegister.Size = new System.Drawing.Size(189, 44);
             this.btnRegister.TabIndex = 2;
             this.btnRegister.Text = "Registrarse";
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
-            // Form1
+            // Welcome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(371, 269);
+            this.ClientSize = new System.Drawing.Size(552, 300);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnLogIn);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Welcome";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Sistema";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
