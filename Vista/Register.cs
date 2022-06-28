@@ -17,8 +17,16 @@ namespace Vista
             InitializeComponent();
         }
 
-        private void Register_Load(object sender, EventArgs e)
+        /* FUNCION PARA SOLO LETRAS Y NUMEROS */
+
+        public void onlyNumber(object sender, KeyPressEventArgs e)
         {
+
+            if (!char.IsNumber(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+            }
+            return;
 
         }
 
@@ -43,18 +51,6 @@ namespace Vista
 
         }
 
-        /* FUNCION PARA SOLO LETRAS Y NUMEROS */
-
-        public void onlyNumber(object sender, KeyPressEventArgs e)
-        {
-
-            if (!char.IsNumber(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
-            {
-                e.Handled = true;
-            }
-            return;
-
-        }
 
         public void onlyLetter(object sender, KeyPressEventArgs e)
         {
@@ -65,5 +61,18 @@ namespace Vista
 
         }
 
+        private void btnLogIn_Click(object sender, EventArgs e)
+        {
+            LogIn logInForm = new LogIn();
+            this.Hide();
+
+            logInForm.ShowDialog();
+
+
+            Welcome welcomeForm = new Welcome();
+            welcomeForm.ShowDialog();
+
+
+        }
     }
 }
