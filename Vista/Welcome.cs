@@ -27,6 +27,8 @@ namespace Vista
         private void btnRegister_Click(object sender, EventArgs e)
         {
             Register RegisterForm = new Register();
+            this.Hide();
+
 
             RegisterForm.ShowDialog();
             this.Show();
