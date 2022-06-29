@@ -21,6 +21,7 @@ namespace Vista
         public string conexion = "Data Source=MAURI-PC;Initial Catalog = POO; Integrated Security = True";
 
 
+
         /* FUNCION PARA SOLO LETRAS Y NUMEROS */
 
         public void onlyNumber(object sender, KeyPressEventArgs e)
@@ -79,9 +80,87 @@ namespace Vista
 
         }
 
+
+        /* TRY CATCH DE REGISTRO */
+
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            
+            using (SqlConnection cn = new SqlConnection(conexion))
+            {
+                try
+                {
+
+                   
+
+                    string query = "Insert into USUARIOS values ('"+txtNombre.Text+"','"+txtApellido.Text+"','"+txtMail.Text+"','" + txtPassword.Text + "'," + txtDNI.Text + "," + txtTel.Text + ")";
+                    SqlDataAdapter da = new SqlDataAdapter(query, cn);
+                    cn.Open();
+                    da.SelectCommand.ExecuteNonQuery();
+                    MessageBox.Show("Usuario creado con exito");
+
+                }
+
+                catch
+                {
+                    if (txtNombre.Text == "" || txtApellido.Text == "" || txtMail.Text == "" || txtDNI.Text == "" || txtPassword.Text == "" || txtTel.Text == "")
+                    {
+                        MessageBox.Show("Por favor complete todos los campos" + AcceptButton);
+                    }
+
+                    
+                    /*
+                    if ( == true)
+                    {
+                        MessageBox.Show("Ya existe una cuenta con este Email"+ AcceptButton);
+                    }
+
+                    NO FUNCIONA*/
+
+
+                }
+
+                finally
+                {
+                    cn.Close();
+
+                }
+
+            }
+
+
+
         }
+
+        /* NO FUNCIONA
+        public bool userExist()
+        {
+
+            using (SqlConnection cn = new SqlConnection(conexion)) {
+
+            SqlDataReader reader;
+                cn.Open();
+         
+
+            string query = "select EMAIL from USUARIOS where EMAIL = '"+txtMail.Text+"'";
+            SqlCommand cmd = new SqlCommand(query, cn);
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+            }
+
+
+
+        }
+
+        */
+
     }
 }
