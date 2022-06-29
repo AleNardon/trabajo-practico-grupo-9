@@ -99,6 +99,7 @@
             this.btnlogIn.TabIndex = 6;
             this.btnlogIn.Text = "Iniciar Sesión";
             this.btnlogIn.UseVisualStyleBackColor = true;
+            this.btnlogIn.Click += new System.EventHandler(this.btnlogIn_Click);
             // 
             // btnRegister
             // 

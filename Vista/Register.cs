@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Vista
 {
@@ -16,6 +17,9 @@ namespace Vista
         {
             InitializeComponent();
         }
+
+        public string conexion = "Data Source=MAURI-PC;Initial Catalog = POO; Integrated Security = True";
+
 
         /* FUNCION PARA SOLO LETRAS Y NUMEROS */
 
@@ -73,6 +77,11 @@ namespace Vista
             welcomeForm.ShowDialog();
 
 
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
