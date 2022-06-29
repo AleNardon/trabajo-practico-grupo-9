@@ -18,7 +18,7 @@ namespace Vista
             InitializeComponent();
         }
 
-        public string conexion = "Data Source=LAPTOP-MAURI;Initial Catalog = POO; Integrated Security = True";
+        public string conexion = "Data Source=MAURI-PC;Initial Catalog = POO; Integrated Security = True";
 
 
 
@@ -74,48 +74,38 @@ namespace Vista
             logInForm.ShowDialog();
 
 
-            Welcome welcomeForm = new Welcome();
-            welcomeForm.ShowDialog();
-
-
         }
-
 
         /* TRY CATCH DE REGISTRO */
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            using (SqlConnection cn = new SqlConnection(conexion))
-            {
+
+            SqlConnection cn = new SqlConnection(conexion);
+            
                 try
                 {
-
-                   
-
-                    string query = "Insert into USUARIOS values ('"+txtNombre.Text+"','"+txtApellido.Text+"','"+txtMail.Text+"','" + txtPassword.Text + "'," + txtDNI.Text + "," + txtTel.Text + ")";
+                    string query = "Insert into USUARIOS values ('" + txtNombre.Text + "','" + txtApellido.Text + "','" + txtMail.Text + "','" + txtPassword.Text + "'," + txtDNI.Text + "," + txtTel.Text + ")";
                     SqlDataAdapter da = new SqlDataAdapter(query, cn);
                     cn.Open();
+
                     da.SelectCommand.ExecuteNonQuery();
+
                     MessageBox.Show("Usuario creado con exito");
 
                 }
 
-                catch
+                catch (Exception)
                 {
+
                     if (txtNombre.Text == "" || txtApellido.Text == "" || txtMail.Text == "" || txtDNI.Text == "" || txtPassword.Text == "" || txtTel.Text == "")
                     {
                         MessageBox.Show("Por favor complete todos los campos" + AcceptButton);
-                    }
-
-                    
-                    /*
-                    if ( == true)
+                    } else if (userExist() == true)
                     {
-                        MessageBox.Show("Ya existe una cuenta con este Email"+ AcceptButton);
+                        MessageBox.Show("Ya existe una cuenta con este Email" + AcceptButton);
+                        
                     }
-
-                    NO FUNCIONA*/
-
 
                 }
 
@@ -125,42 +115,33 @@ namespace Vista
 
                 }
 
-            }
-
-
-
         }
 
-        /* NO FUNCIONA
+
         public bool userExist()
         {
+            bool resultado = false;
 
-            using (SqlConnection cn = new SqlConnection(conexion)) {
-
-            SqlDataReader reader;
-                cn.Open();
-         
-
-            string query = "select EMAIL from USUARIOS where EMAIL = '"+txtMail.Text+"'";
+            SqlConnection cn = new SqlConnection(conexion);
+            cn.Open();
+            string query = "select EMAIL from USUARIOS where EMAIL = '" + txtMail.Text + "'";
             SqlCommand cmd = new SqlCommand(query, cn);
-            reader = cmd.ExecuteReader();
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
 
             if (reader.HasRows)
             {
-                return true;
+                resultado = true;
+                return resultado;
+
             }
             else
             {
-                return false;
-            }
+                return resultado;
 
             }
-
-
-
         }
-
-        */
 
     }
 }
