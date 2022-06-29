@@ -18,7 +18,7 @@ namespace Vista
             InitializeComponent();
         }
 
-        public string conexion = "Data Source=MAURI-PC;Initial Catalog = POO; Integrated Security = True";
+        public string conexion = "Data Source=LAPTOP-MAURI;Initial Catalog = POO; Integrated Security = True";
 
 
 
