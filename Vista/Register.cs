@@ -18,7 +18,7 @@ namespace Vista
             InitializeComponent();
         }
 
-        public string conexion = "Data Source=MAURI-PC;Initial Catalog = POO; Integrated Security = True";
+        public string conexion = "Data Source=LAPTOP-MAURI;Initial Catalog = POO; Integrated Security = True";
 
 
 
@@ -85,7 +85,7 @@ namespace Vista
             
                 try
                 {
-                    string query = "Insert into USUARIOS values ('" + txtNombre.Text + "','" + txtApellido.Text + "','" + txtMail.Text + "','" + txtPassword.Text + "'," + txtDNI.Text + "," + txtTel.Text + ")";
+                    string query = "Insert into USUARIOS (NOMBRE, APELLIDO, EMAIL, CONTRASENA, DNI, TELEFONO) values ('" + txtNombre.Text + "','" + txtApellido.Text + "','" + txtMail.Text + "','" + txtPassword.Text + "'," + txtDNI.Text + "," + txtTel.Text + ")";
                     SqlDataAdapter da = new SqlDataAdapter(query, cn);
                     cn.Open();
 

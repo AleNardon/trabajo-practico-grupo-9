@@ -17,8 +17,12 @@ namespace Vista
         {
             InitializeComponent();
         }
+        private void LogIn_Load(object sender, EventArgs e)
+        {
 
-        string conexion = "Data Source=MAURI-PC;Initial Catalog = POO; Integrated Security = True";
+        }
+
+        string conexion = "Data Source=LAPTOP-MAURI;Initial Catalog = POO; Integrated Security = True";
 
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -51,7 +55,11 @@ namespace Vista
 
                 if (reader.Read())
                 {
-                    MessageBox.Show("Ingreso correcto");
+                    adminForm admin = new adminForm();
+                    this.Hide();
+
+                    admin.ShowDialog();
+
                 }
                 else
                 {
@@ -66,5 +74,6 @@ namespace Vista
 
             }
         }
+
     }
 }
