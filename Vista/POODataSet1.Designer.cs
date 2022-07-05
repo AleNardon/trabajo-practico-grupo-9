@@ -291,6 +291,8 @@ namespace Vista {
             
             private global::System.Data.DataColumn columnTELEFONO;
             
+            private global::System.Data.DataColumn columnADMIN;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public USUARIOSDataTable() {
@@ -374,6 +376,14 @@ namespace Vista {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ADMINColumn {
+                get {
+                    return this.columnADMIN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -409,7 +419,7 @@ namespace Vista {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public USUARIOSRow AddUSUARIOSRow(string NOMBRE, string APELLIDO, string EMAIL, string CONTRASENA, int DNI, double TELEFONO) {
+            public USUARIOSRow AddUSUARIOSRow(string NOMBRE, string APELLIDO, string EMAIL, string CONTRASENA, int DNI, double TELEFONO, int ADMIN) {
                 USUARIOSRow rowUSUARIOSRow = ((USUARIOSRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NOMBRE,
@@ -417,10 +427,18 @@ namespace Vista {
                         EMAIL,
                         CONTRASENA,
                         DNI,
-                        TELEFONO};
+                        TELEFONO,
+                        ADMIN};
                 rowUSUARIOSRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUSUARIOSRow);
                 return rowUSUARIOSRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public USUARIOSRow FindByEMAIL(string EMAIL) {
+                return ((USUARIOSRow)(this.Rows.Find(new object[] {
+                            EMAIL})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -446,6 +464,7 @@ namespace Vista {
                 this.columnCONTRASENA = base.Columns["CONTRASENA"];
                 this.columnDNI = base.Columns["DNI"];
                 this.columnTELEFONO = base.Columns["TELEFONO"];
+                this.columnADMIN = base.Columns["ADMIN"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -463,8 +482,14 @@ namespace Vista {
                 base.Columns.Add(this.columnDNI);
                 this.columnTELEFONO = new global::System.Data.DataColumn("TELEFONO", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTELEFONO);
+                this.columnADMIN = new global::System.Data.DataColumn("ADMIN", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnADMIN);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnEMAIL}, true));
                 this.columnNOMBRE.MaxLength = 50;
                 this.columnAPELLIDO.MaxLength = 50;
+                this.columnEMAIL.AllowDBNull = false;
+                this.columnEMAIL.Unique = true;
                 this.columnEMAIL.MaxLength = 60;
                 this.columnCONTRASENA.MaxLength = 20;
             }
@@ -643,12 +668,7 @@ namespace Vista {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string EMAIL {
                 get {
-                    try {
-                        return ((string)(this[this.tableUSUARIOS.EMAILColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'EMAIL\' de la tabla \'USUARIOS\' es DBNull.", e);
-                    }
+                    return ((string)(this[this.tableUSUARIOS.EMAILColumn]));
                 }
                 set {
                     this[this.tableUSUARIOS.EMAILColumn] = value;
@@ -705,6 +725,22 @@ namespace Vista {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int ADMIN {
+                get {
+                    try {
+                        return ((int)(this[this.tableUSUARIOS.ADMINColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ADMIN\' de la tabla \'USUARIOS\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSUARIOS.ADMINColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsNOMBRENull() {
                 return this.IsNull(this.tableUSUARIOS.NOMBREColumn);
             }
@@ -725,18 +761,6 @@ namespace Vista {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetAPELLIDONull() {
                 this[this.tableUSUARIOS.APELLIDOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEMAILNull() {
-                return this.IsNull(this.tableUSUARIOS.EMAILColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEMAILNull() {
-                this[this.tableUSUARIOS.EMAILColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -773,6 +797,18 @@ namespace Vista {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetTELEFONONull() {
                 this[this.tableUSUARIOS.TELEFONOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsADMINNull() {
+                return this.IsNull(this.tableUSUARIOS.ADMINColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetADMINNull() {
+                this[this.tableUSUARIOS.ADMINColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -941,11 +977,24 @@ namespace Vista.POODataSet1TableAdapters {
             tableMapping.ColumnMappings.Add("CONTRASENA", "CONTRASENA");
             tableMapping.ColumnMappings.Add("DNI", "DNI");
             tableMapping.ColumnMappings.Add("TELEFONO", "TELEFONO");
+            tableMapping.ColumnMappings.Add("ADMIN", "ADMIN");
             this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [USUARIOS] WHERE (([NOMBRE] = @Original_NOMBRE) AND ([APELLIDO] = @Original_APELLIDO) AND ([EMAIL] = @Original_EMAIL) AND ([CONTRASENA] = @Original_CONTRASENA) AND ([DNI] = @Original_DNI) AND ([TELEFONO] = @Original_TELEFONO) AND ((@IsNull_ADMIN = 1 AND [ADMIN] IS NULL) OR ([ADMIN] = @Original_ADMIN)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOMBRE", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOMBRE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_APELLIDO", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "APELLIDO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EMAIL", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EMAIL", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CONTRASENA", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CONTRASENA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DNI", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DNI", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TELEFONO", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TELEFONO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ADMIN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ADMIN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ADMIN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ADMIN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[USUARIOS] ([NOMBRE], [APELLIDO], [EMAIL], [CONTRASENA], [DNI]," +
-                " [TELEFONO]) VALUES (@NOMBRE, @APELLIDO, @EMAIL, @CONTRASENA, @DNI, @TELEFONO)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [USUARIOS] ([NOMBRE], [APELLIDO], [EMAIL], [CONTRASENA], [DNI], [TELEFONO], [ADMIN]) VALUES (@NOMBRE, @APELLIDO, @EMAIL, @CONTRASENA, @DNI, @TELEFONO, @ADMIN);
+SELECT NOMBRE, APELLIDO, EMAIL, CONTRASENA, DNI, TELEFONO, ADMIN FROM USUARIOS WHERE (EMAIL = @EMAIL)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOMBRE", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOMBRE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@APELLIDO", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "APELLIDO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -953,6 +1002,27 @@ namespace Vista.POODataSet1TableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CONTRASENA", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CONTRASENA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DNI", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DNI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TELEFONO", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TELEFONO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ADMIN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ADMIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [USUARIOS] SET [NOMBRE] = @NOMBRE, [APELLIDO] = @APELLIDO, [EMAIL] = @EMAIL, [CONTRASENA] = @CONTRASENA, [DNI] = @DNI, [TELEFONO] = @TELEFONO, [ADMIN] = @ADMIN WHERE (([NOMBRE] = @Original_NOMBRE) AND ([APELLIDO] = @Original_APELLIDO) AND ([EMAIL] = @Original_EMAIL) AND ([CONTRASENA] = @Original_CONTRASENA) AND ([DNI] = @Original_DNI) AND ([TELEFONO] = @Original_TELEFONO) AND ((@IsNull_ADMIN = 1 AND [ADMIN] IS NULL) OR ([ADMIN] = @Original_ADMIN)));
+SELECT NOMBRE, APELLIDO, EMAIL, CONTRASENA, DNI, TELEFONO, ADMIN FROM USUARIOS WHERE (EMAIL = @EMAIL)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOMBRE", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOMBRE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@APELLIDO", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "APELLIDO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EMAIL", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EMAIL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CONTRASENA", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CONTRASENA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DNI", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DNI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TELEFONO", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TELEFONO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ADMIN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ADMIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOMBRE", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOMBRE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_APELLIDO", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "APELLIDO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EMAIL", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EMAIL", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CONTRASENA", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CONTRASENA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DNI", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DNI", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TELEFONO", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TELEFONO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ADMIN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ADMIN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ADMIN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ADMIN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -968,7 +1038,7 @@ namespace Vista.POODataSet1TableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT NOMBRE, APELLIDO, EMAIL, CONTRASENA, DNI, TELEFONO FROM dbo.USUARIOS";
+            this._commandCollection[0].CommandText = "SELECT NOMBRE, APELLIDO, EMAIL, CONTRASENA, DNI, TELEFONO, ADMIN FROM USUARIOS";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1028,43 +1098,94 @@ namespace Vista.POODataSet1TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string Original_NOMBRE, string Original_APELLIDO, string Original_EMAIL, string Original_CONTRASENA, int Original_DNI, double Original_TELEFONO, global::System.Nullable<int> Original_ADMIN) {
+            if ((Original_NOMBRE == null)) {
+                throw new global::System.ArgumentNullException("Original_NOMBRE");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_NOMBRE));
+            }
+            if ((Original_APELLIDO == null)) {
+                throw new global::System.ArgumentNullException("Original_APELLIDO");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_APELLIDO));
+            }
+            if ((Original_EMAIL == null)) {
+                throw new global::System.ArgumentNullException("Original_EMAIL");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_EMAIL));
+            }
+            if ((Original_CONTRASENA == null)) {
+                throw new global::System.ArgumentNullException("Original_CONTRASENA");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_CONTRASENA));
+            }
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_DNI));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((double)(Original_TELEFONO));
+            if ((Original_ADMIN.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_ADMIN.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string NOMBRE, string APELLIDO, string EMAIL, string CONTRASENA, global::System.Nullable<int> DNI, global::System.Nullable<double> TELEFONO) {
+        public virtual int Insert(string NOMBRE, string APELLIDO, string EMAIL, string CONTRASENA, int DNI, double TELEFONO, global::System.Nullable<int> ADMIN) {
             if ((NOMBRE == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("NOMBRE");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(NOMBRE));
             }
             if ((APELLIDO == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("APELLIDO");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(APELLIDO));
             }
             if ((EMAIL == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("EMAIL");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(EMAIL));
             }
             if ((CONTRASENA == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("CONTRASENA");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(CONTRASENA));
             }
-            if ((DNI.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(DNI.Value));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(DNI));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((double)(TELEFONO));
+            if ((ADMIN.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((int)(ADMIN.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((TELEFONO.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((double)(TELEFONO.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1080,6 +1201,101 @@ namespace Vista.POODataSet1TableAdapters {
                     this.Adapter.InsertCommand.Connection.Close();
                 }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string NOMBRE, string APELLIDO, string EMAIL, string CONTRASENA, int DNI, double TELEFONO, global::System.Nullable<int> ADMIN, string Original_NOMBRE, string Original_APELLIDO, string Original_EMAIL, string Original_CONTRASENA, int Original_DNI, double Original_TELEFONO, global::System.Nullable<int> Original_ADMIN) {
+            if ((NOMBRE == null)) {
+                throw new global::System.ArgumentNullException("NOMBRE");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(NOMBRE));
+            }
+            if ((APELLIDO == null)) {
+                throw new global::System.ArgumentNullException("APELLIDO");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(APELLIDO));
+            }
+            if ((EMAIL == null)) {
+                throw new global::System.ArgumentNullException("EMAIL");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(EMAIL));
+            }
+            if ((CONTRASENA == null)) {
+                throw new global::System.ArgumentNullException("CONTRASENA");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(CONTRASENA));
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(DNI));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((double)(TELEFONO));
+            if ((ADMIN.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(ADMIN.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOMBRE == null)) {
+                throw new global::System.ArgumentNullException("Original_NOMBRE");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_NOMBRE));
+            }
+            if ((Original_APELLIDO == null)) {
+                throw new global::System.ArgumentNullException("Original_APELLIDO");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_APELLIDO));
+            }
+            if ((Original_EMAIL == null)) {
+                throw new global::System.ArgumentNullException("Original_EMAIL");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_EMAIL));
+            }
+            if ((Original_CONTRASENA == null)) {
+                throw new global::System.ArgumentNullException("Original_CONTRASENA");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_CONTRASENA));
+            }
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_DNI));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((double)(Original_TELEFONO));
+            if ((Original_ADMIN.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_ADMIN.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string NOMBRE, string APELLIDO, string CONTRASENA, int DNI, double TELEFONO, global::System.Nullable<int> ADMIN, string Original_NOMBRE, string Original_APELLIDO, string Original_EMAIL, string Original_CONTRASENA, int Original_DNI, double Original_TELEFONO, global::System.Nullable<int> Original_ADMIN) {
+            return this.Update(NOMBRE, APELLIDO, Original_EMAIL, CONTRASENA, DNI, TELEFONO, ADMIN, Original_NOMBRE, Original_APELLIDO, Original_EMAIL, Original_CONTRASENA, Original_DNI, Original_TELEFONO, Original_ADMIN);
         }
     }
     

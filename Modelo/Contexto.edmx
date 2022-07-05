@@ -40,6 +40,7 @@
           <Property Name="Email" Type="String" Nullable="false" />
           <Property Name="Dni" Type="String" Nullable="false" />
           <Property Name="Contrasena" Type="String" Nullable="false" />
+          <Property Name="Admin" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Perfil">
           <Key>
