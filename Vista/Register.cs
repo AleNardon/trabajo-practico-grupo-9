@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 
 namespace Vista
 {
@@ -18,7 +18,8 @@ namespace Vista
             InitializeComponent();
         }
 
-        public string conexion = "Data Source=LAPTOP-MAURI;Initial Catalog = POO; Integrated Security = True";
+        string conexion = "Data Source= SISTEMAPEAJE.s3db;Version=3;New=False;Compress=True;";
+
 
 
 
@@ -81,12 +82,12 @@ namespace Vista
         private void btnRegister_Click(object sender, EventArgs e)
         {
 
-            SqlConnection cn = new SqlConnection(conexion);
+            SQLiteConnection cn = new SQLiteConnection(conexion);
             
                 try
                 {
                     string query = "Insert into USUARIOS (NOMBRE, APELLIDO, EMAIL, CONTRASENA, DNI, TELEFONO) values ('" + txtNombre.Text + "','" + txtApellido.Text + "','" + txtMail.Text + "','" + txtPassword.Text + "'," + txtDNI.Text + "," + txtTel.Text + ")";
-                    SqlDataAdapter da = new SqlDataAdapter(query, cn);
+                    SQLiteDataAdapter da = new SQLiteDataAdapter(query, cn);
                     cn.Open();
 
                     da.SelectCommand.ExecuteNonQuery();
@@ -122,12 +123,12 @@ namespace Vista
         {
             bool resultado = false;
 
-            SqlConnection cn = new SqlConnection(conexion);
+            SQLiteConnection cn = new SQLiteConnection(conexion);
             cn.Open();
             string query = "select EMAIL from USUARIOS where EMAIL = '" + txtMail.Text + "'";
-            SqlCommand cmd = new SqlCommand(query, cn);
+            SQLiteCommand cmd = new SQLiteCommand(query, cn);
 
-            SqlDataReader reader = cmd.ExecuteReader();
+            SQLiteDataReader reader = cmd.ExecuteReader();
 
 
             if (reader.HasRows)
