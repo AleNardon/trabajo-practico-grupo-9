@@ -55,13 +55,12 @@ namespace Vista
 
                 if (reader.Read())
                 {
-                    //
-                    // adminForm admin = new adminForm();
-                    //  this.Hide();
+                    
+                     Admin adminForm = new Admin();
+                     this.Hide();
 
-                    // admin.ShowDialog();
-                    //
-                    MessageBox.Show("Test");
+                     adminForm.ShowDialog();
+                    
                 }
                 else
                 {
