@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 
 namespace Vista
 {
@@ -22,7 +22,7 @@ namespace Vista
 
         }
 
-        string conexion = "Data Source=LAPTOP-MAURI;Initial Catalog = POO; Integrated Security = True";
+        string conexion = "Data Source= SISTEMAPEAJE.s3db;Version=3;New=False;Compress=True;";
 
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -39,27 +39,29 @@ namespace Vista
 
         private void btnlogIn_Click(object sender, EventArgs e)
         {
-            using (SqlConnection cn = new SqlConnection(conexion))
+            using (SQLiteConnection cn = new SQLiteConnection(conexion))
             {
                 cn.Open();
 
                 string query = "select EMAIL, CONTRASENA from USUARIOS where EMAIL = @vEMAIL and CONTRASENA = @vCONTRASENA";
-                SqlCommand cmd = new SqlCommand(query, cn);
+                SQLiteCommand cmd = new SQLiteCommand(query, cn);
 
                 cmd.Parameters.AddWithValue("@vEMAIL", txtEmail.Text);
                 cmd.Parameters.AddWithValue("@vCONTRASENA", txtPassword.Text);
 
 
 
-                SqlDataReader reader = cmd.ExecuteReader();
+                SQLiteDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
                 {
-                    adminForm admin = new adminForm();
-                    this.Hide();
+                    //
+                    // adminForm admin = new adminForm();
+                    //  this.Hide();
 
-                    admin.ShowDialog();
-
+                    // admin.ShowDialog();
+                    //
+                    MessageBox.Show("Test");
                 }
                 else
                 {
