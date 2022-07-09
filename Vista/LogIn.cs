@@ -22,7 +22,7 @@ namespace Vista
 
         }
 
-        string conexion = "Data Source= SISTEMAPEAJE.s3db;Version=3;New=False;Compress=True;";
+        string conexion = "Data Source= DataBasePeaje.db;Version=3;New=False;Compress=True;";
 
 
         private void btnRegister_Click(object sender, EventArgs e)
