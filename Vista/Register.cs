@@ -102,7 +102,14 @@ namespace Vista
                     if (txtNombre.Text == "" || txtApellido.Text == "" || txtMail.Text == "" || txtDNI.Text == "" || txtPassword.Text == "" || txtTel.Text == "")
                     {
                         MessageBox.Show("Por favor complete todos los campos" + AcceptButton);
-                    } else if (userExist() == true)
+                    } 
+                     else if (!txtMail.Text.Contains("@")) 
+                {
+                        
+                    MessageBox.Show("Escriba una direccion de Email valida" + AcceptButton);
+
+                }
+                else if (userExist() == true)
                     {
                         MessageBox.Show("Ya existe una cuenta con este Email" + AcceptButton);
                         
