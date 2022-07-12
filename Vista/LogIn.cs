@@ -55,12 +55,34 @@ namespace Vista
 
                 if (reader.Read())
                 {
-                    
-                     Admin adminForm = new Admin();
+                    string queryAdmin = "select EMAIL, ADMIN from USUARIOS where EMAIL = @vEMAIL and ADMIN = @vADMIN ";
+
+                    SQLiteCommand cmd2 = new SQLiteCommand(queryAdmin, cn);
+                    cmd2.Parameters.AddWithValue("@vEMAIL", txtEmail.Text);
+                    cmd2.Parameters.AddWithValue("@vADMIN", "Y");
+
+
+                    SQLiteDataReader newReader = cmd2.ExecuteReader();
+
+                    if (newReader.Read())
+                    {
+
+                    Admin adminForm = new Admin();
                      this.Hide();
 
                      adminForm.ShowDialog();
                     
+
+                    } else
+                    {
+                        Usuario usuarioForm = new Usuario();
+                        this.Hide();
+
+                       usuarioForm.ShowDialog();
+
+
+                    }
+
                 }
                 else
                 {
