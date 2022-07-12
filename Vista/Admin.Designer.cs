@@ -28,38 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvUsuarios = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
+            this.btnUsuarios = new System.Windows.Forms.Button();
+            this.btnTarifas = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // dgvUsuarios
+            // btnUsuarios
             // 
-            this.dgvUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvUsuarios.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsuarios.Location = new System.Drawing.Point(48, 139);
-            this.dgvUsuarios.Name = "dgvUsuarios";
-            this.dgvUsuarios.RowHeadersWidth = 51;
-            this.dgvUsuarios.RowTemplate.Height = 24;
-            this.dgvUsuarios.Size = new System.Drawing.Size(1212, 291);
-            this.dgvUsuarios.TabIndex = 0;
+            this.btnUsuarios.BackColor = System.Drawing.Color.Navy;
+            this.btnUsuarios.FlatAppearance.BorderSize = 0;
+            this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuarios.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnUsuarios.Location = new System.Drawing.Point(33, 73);
+            this.btnUsuarios.Name = "btnUsuarios";
+            this.btnUsuarios.Size = new System.Drawing.Size(189, 44);
+            this.btnUsuarios.TabIndex = 3;
+            this.btnUsuarios.Text = "Usuarios";
+            this.btnUsuarios.UseVisualStyleBackColor = false;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
+            // 
+            // btnTarifas
+            // 
+            this.btnTarifas.BackColor = System.Drawing.Color.Navy;
+            this.btnTarifas.FlatAppearance.BorderSize = 0;
+            this.btnTarifas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTarifas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTarifas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnTarifas.Location = new System.Drawing.Point(262, 73);
+            this.btnTarifas.Name = "btnTarifas";
+            this.btnTarifas.Size = new System.Drawing.Size(189, 44);
+            this.btnTarifas.TabIndex = 4;
+            this.btnTarifas.Text = "Tarifas";
+            this.btnTarifas.UseVisualStyleBackColor = false;
+            this.btnTarifas.Click += new System.EventHandler(this.btnTarifas_Click);
             // 
             // Admin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1333, 450);
-            this.Controls.Add(this.dgvUsuarios);
+            this.ClientSize = new System.Drawing.Size(481, 208);
+            this.Controls.Add(this.btnTarifas);
+            this.Controls.Add(this.btnUsuarios);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Admin";
             this.Text = "Admin";
             this.Load += new System.EventHandler(this.Admin_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvUsuarios;
+        private System.Windows.Forms.Button btnUsuarios;
+        private System.Windows.Forms.Button btnTarifas;
     }
 }
