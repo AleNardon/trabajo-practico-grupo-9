@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class AdminTarifas : Form
+    public partial class Usuario : Form
     {
-        public AdminTarifas()
+        public Usuario()
         {
             InitializeComponent();
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnSalir_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
