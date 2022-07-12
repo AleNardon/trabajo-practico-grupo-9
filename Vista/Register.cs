@@ -58,9 +58,9 @@ namespace Vista
         }
 
 
-        public void onlyLetter(object sender, KeyPressEventArgs e)
+        public void onlyLetter(object sender, KeyPressEventArgs e) 
         {
-            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && !(char.IsWhiteSpace(e.KeyChar)))
             {
                 e.Handled = true;
             }
@@ -144,5 +144,9 @@ namespace Vista
             }
         }
 
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

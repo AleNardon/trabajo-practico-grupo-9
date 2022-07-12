@@ -50,120 +50,121 @@
             // txtNombre
             // 
             this.txtNombre.BackColor = System.Drawing.Color.White;
-            this.txtNombre.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(24, 131);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(27, 164);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(419, 32);
+            this.txtNombre.Size = new System.Drawing.Size(471, 35);
             this.txtNombre.TabIndex = 0;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtApellido
             // 
             this.txtApellido.BackColor = System.Drawing.Color.White;
-            this.txtApellido.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellido.Location = new System.Drawing.Point(24, 195);
-            this.txtApellido.Margin = new System.Windows.Forms.Padding(4);
+            this.txtApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellido.Location = new System.Drawing.Point(27, 244);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(419, 32);
+            this.txtApellido.Size = new System.Drawing.Size(471, 35);
             this.txtApellido.TabIndex = 1;
             this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // nombrelbl
             // 
             this.nombrelbl.AutoSize = true;
-            this.nombrelbl.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombrelbl.Location = new System.Drawing.Point(20, 106);
+            this.nombrelbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombrelbl.Location = new System.Drawing.Point(22, 132);
             this.nombrelbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nombrelbl.Name = "nombrelbl";
-            this.nombrelbl.Size = new System.Drawing.Size(82, 21);
+            this.nombrelbl.Size = new System.Drawing.Size(93, 25);
             this.nombrelbl.TabIndex = 2;
             this.nombrelbl.Text = "Nombre:";
             // 
             // apellidolbl
             // 
             this.apellidolbl.AutoSize = true;
-            this.apellidolbl.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.apellidolbl.Location = new System.Drawing.Point(20, 170);
+            this.apellidolbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.apellidolbl.Location = new System.Drawing.Point(22, 212);
             this.apellidolbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.apellidolbl.Name = "apellidolbl";
-            this.apellidolbl.Size = new System.Drawing.Size(83, 21);
+            this.apellidolbl.Size = new System.Drawing.Size(95, 25);
             this.apellidolbl.TabIndex = 3;
             this.apellidolbl.Text = "Apellido:";
             // 
             // registrolb
             // 
             this.registrolb.AutoSize = true;
-            this.registrolb.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registrolb.Location = new System.Drawing.Point(110, 31);
+            this.registrolb.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.registrolb.Location = new System.Drawing.Point(124, 39);
             this.registrolb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.registrolb.Name = "registrolb";
-            this.registrolb.Size = new System.Drawing.Size(243, 44);
+            this.registrolb.Size = new System.Drawing.Size(346, 52);
             this.registrolb.TabIndex = 4;
             this.registrolb.Text = "REGISTRARSE";
             // 
             // dnilbl
             // 
             this.dnilbl.AutoSize = true;
-            this.dnilbl.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dnilbl.Location = new System.Drawing.Point(20, 363);
+            this.dnilbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dnilbl.Location = new System.Drawing.Point(22, 454);
             this.dnilbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dnilbl.Name = "dnilbl";
-            this.dnilbl.Size = new System.Drawing.Size(46, 21);
+            this.dnilbl.Size = new System.Drawing.Size(53, 25);
             this.dnilbl.TabIndex = 5;
             this.dnilbl.Text = "DNI:";
             // 
             // txtDNI
             // 
             this.txtDNI.BackColor = System.Drawing.Color.White;
-            this.txtDNI.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDNI.Location = new System.Drawing.Point(24, 388);
-            this.txtDNI.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDNI.Location = new System.Drawing.Point(27, 485);
+            this.txtDNI.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDNI.Name = "txtDNI";
-            this.txtDNI.Size = new System.Drawing.Size(419, 32);
+            this.txtDNI.Size = new System.Drawing.Size(471, 35);
             this.txtDNI.TabIndex = 6;
             this.txtDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDNI_KeyPress);
             // 
             // maillbl
             // 
             this.maillbl.AutoSize = true;
-            this.maillbl.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maillbl.Location = new System.Drawing.Point(20, 235);
+            this.maillbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maillbl.Location = new System.Drawing.Point(22, 294);
             this.maillbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.maillbl.Name = "maillbl";
-            this.maillbl.Size = new System.Drawing.Size(57, 21);
+            this.maillbl.Size = new System.Drawing.Size(71, 25);
             this.maillbl.TabIndex = 7;
             this.maillbl.Text = "Email:";
             // 
             // txtMail
             // 
             this.txtMail.BackColor = System.Drawing.Color.White;
-            this.txtMail.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMail.Location = new System.Drawing.Point(24, 262);
-            this.txtMail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMail.Location = new System.Drawing.Point(27, 328);
+            this.txtMail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(419, 32);
+            this.txtMail.Size = new System.Drawing.Size(471, 35);
             this.txtMail.TabIndex = 8;
             // 
             // tellbl
             // 
             this.tellbl.AutoSize = true;
-            this.tellbl.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tellbl.Location = new System.Drawing.Point(20, 429);
+            this.tellbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tellbl.Location = new System.Drawing.Point(22, 536);
             this.tellbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tellbl.Name = "tellbl";
-            this.tellbl.Size = new System.Drawing.Size(85, 21);
+            this.tellbl.Size = new System.Drawing.Size(102, 25);
             this.tellbl.TabIndex = 9;
             this.tellbl.Text = "Télefono:";
             // 
             // txtTel
             // 
             this.txtTel.BackColor = System.Drawing.Color.White;
-            this.txtTel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTel.Location = new System.Drawing.Point(24, 454);
-            this.txtTel.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTel.Location = new System.Drawing.Point(27, 568);
+            this.txtTel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTel.Name = "txtTel";
-            this.txtTel.Size = new System.Drawing.Size(419, 32);
+            this.txtTel.Size = new System.Drawing.Size(471, 35);
             this.txtTel.TabIndex = 10;
             this.txtTel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTel_KeyPress);
             // 
@@ -172,12 +173,12 @@
             this.btnRegister.BackColor = System.Drawing.Color.Navy;
             this.btnRegister.FlatAppearance.BorderSize = 0;
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegister.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRegister.Location = new System.Drawing.Point(13, 599);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRegister.Location = new System.Drawing.Point(13, 769);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(211, 38);
+            this.btnRegister.Size = new System.Drawing.Size(223, 51);
             this.btnRegister.TabIndex = 11;
             this.btnRegister.Text = "Registrarse";
             this.btnRegister.UseVisualStyleBackColor = false;
@@ -188,12 +189,12 @@
             this.btnLogIn.BackColor = System.Drawing.Color.Navy;
             this.btnLogIn.FlatAppearance.BorderSize = 0;
             this.btnLogIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogIn.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogIn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLogIn.Location = new System.Drawing.Point(20, 541);
-            this.btnLogIn.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogIn.Location = new System.Drawing.Point(22, 676);
+            this.btnLogIn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogIn.Name = "btnLogIn";
-            this.btnLogIn.Size = new System.Drawing.Size(162, 29);
+            this.btnLogIn.Size = new System.Drawing.Size(182, 36);
             this.btnLogIn.TabIndex = 12;
             this.btnLogIn.Text = "Iniciar Sesión";
             this.btnLogIn.UseVisualStyleBackColor = false;
@@ -202,33 +203,33 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 506);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(22, 632);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(301, 21);
+            this.label1.Size = new System.Drawing.Size(357, 25);
             this.label1.TabIndex = 13;
             this.label1.Text = "Si ya tiene una cuenta, inicie sesión";
             // 
             // txtPassword
             // 
             this.txtPassword.BackColor = System.Drawing.Color.White;
-            this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(24, 328);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(27, 410);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '•';
-            this.txtPassword.Size = new System.Drawing.Size(419, 32);
+            this.txtPassword.Size = new System.Drawing.Size(471, 35);
             this.txtPassword.TabIndex = 14;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(16, 303);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(18, 379);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 21);
+            this.label2.Size = new System.Drawing.Size(129, 25);
             this.label2.TabIndex = 15;
             this.label2.Text = "Contraseña:";
             // 
@@ -238,23 +239,23 @@
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCancelar.Location = new System.Drawing.Point(232, 599);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.Location = new System.Drawing.Point(258, 772);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(211, 38);
+            this.btnCancelar.Size = new System.Drawing.Size(237, 48);
             this.btnCancelar.TabIndex = 16;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
             // Register
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(468, 655);
+            this.ClientSize = new System.Drawing.Size(528, 859);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPassword);
