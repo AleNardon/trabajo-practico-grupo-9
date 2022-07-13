@@ -112,25 +112,25 @@ namespace Vista
                     {
                         MessageBox.Show("Por favor complete todos los campos" + AcceptButton);
                     } 
-                     else if (!txtMail.Text.Contains("@")) 
-                {
+                     else if (!txtMail.Text.Contains("@") || !txtMail.Text.Contains(".")) 
+                    {
                         
-                    MessageBox.Show("Escriba una direccion de Email valida" + AcceptButton);
+                        MessageBox.Show("Escriba una direccion de Email valida" + AcceptButton);
 
-                }
-                else if (emailExist() == true)
+                    }
+                     else if (emailExist() == true)
                     {
                         MessageBox.Show("Ya existe una cuenta con este Email" + AcceptButton);
                         
                     }
 
-                    else if (dniExist() == true)
-                {
-                    MessageBox.Show("Ya existe una cuenta con este DNI" + AcceptButton);
+                  //  else if (dniExist() == true)
+                   // {
+                     //   MessageBox.Show("Ya existe una cuenta con este DNI" + AcceptButton);
 
-                }
+                  //  }
 
-            }
+                  }
 
                 finally
                 {
@@ -166,31 +166,32 @@ namespace Vista
             }
         }
 
-        public bool dniExist()
-        {
-            bool resultado = false;
+        //public bool dniExist()
+      //  {
+           // bool resultado = false;
+//
+  //          SQLiteConnection cn = new SQLiteConnection(conexion);
+         //   cn.Open();
+         //   string query = "select DNI from USUARIOS where DNI =  '" + txtDNI.Text + "'";
+        // /   SQLiteCommand cmd = new SQLiteCommand(query, cn);
 
-            SQLiteConnection cn = new SQLiteConnection(conexion);
-            cn.Open();
-            string query = "select DNI from USUARIOS where DNI = '" + txtDNI.Text + "'";
-            SQLiteCommand cmd = new SQLiteCommand(query, cn);
-
-            SQLiteDataReader reader = cmd.ExecuteReader();
+         //   SQLiteDataReader reader = cmd.ExecuteReader();
 
 
-            if (reader.HasRows)
-            {
-                resultado = true;
-                return resultado;
+        //    if (reader.HasRows)
+        //    {
+        //        resultado = true;
+           //     return resultado;
 
-            }
-            else
-            {
-                return resultado;
+       //     }
+      //      else
+///{
+             //   return resultado;
+      //          
+      //      }
 
-            }
-
-        }
+ //       }
+//
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
