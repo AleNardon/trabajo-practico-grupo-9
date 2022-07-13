@@ -94,9 +94,18 @@ namespace Vista
 
                     MessageBox.Show("Usuario creado con exito");
 
-                }
+                    Usuario usuarioForm = new Usuario();
+                    this.Hide();
 
-                catch (Exception)
+                    usuarioForm.ShowDialog();
+
+
+
+            }
+
+            
+
+            catch (Exception)
                 {
 
                     if (txtNombre.Text == "" || txtApellido.Text == "" || txtMail.Text == "" || txtDNI.Text == "" || txtPassword.Text == "" || txtTel.Text == "")
@@ -109,13 +118,19 @@ namespace Vista
                     MessageBox.Show("Escriba una direccion de Email valida" + AcceptButton);
 
                 }
-                else if (userExist() == true)
+                else if (emailExist() == true)
                     {
                         MessageBox.Show("Ya existe una cuenta con este Email" + AcceptButton);
                         
                     }
 
+                    else if (dniExist() == true)
+                {
+                    MessageBox.Show("Ya existe una cuenta con este DNI" + AcceptButton);
+
                 }
+
+            }
 
                 finally
                 {
@@ -126,7 +141,7 @@ namespace Vista
         }
 
 
-        public bool userExist()
+        public bool emailExist()
         {
             bool resultado = false;
 
@@ -149,6 +164,32 @@ namespace Vista
                 return resultado;
 
             }
+        }
+
+        public bool dniExist()
+        {
+            bool resultado = false;
+
+            SQLiteConnection cn = new SQLiteConnection(conexion);
+            cn.Open();
+            string query = "select DNI from USUARIOS where DNI = '" + txtDNI.Text + "'";
+            SQLiteCommand cmd = new SQLiteCommand(query, cn);
+
+            SQLiteDataReader reader = cmd.ExecuteReader();
+
+
+            if (reader.HasRows)
+            {
+                resultado = true;
+                return resultado;
+
+            }
+            else
+            {
+                return resultado;
+
+            }
+
         }
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
