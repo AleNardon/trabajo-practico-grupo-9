@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.Text.RegularExpressions;
 
 namespace Vista
 {
@@ -81,10 +82,12 @@ namespace Vista
 
         SQLiteErrorCode errorCode;
 
+
         private void btnRegister_Click(object sender, EventArgs e)
         {
 
             SQLiteConnection cn = new SQLiteConnection(conexion);
+
 
             try
             {
@@ -101,31 +104,34 @@ namespace Vista
 
                 usuarioForm.ShowDialog();
 
-
+               
 
             }
 
-
-
-            catch (SQLiteException)
+            catch (Exception)
             {
-
+                
                 if (txtNombre.Text == "" || txtApellido.Text == "" || txtMail.Text == "" || txtDNI.Text == "" || txtPassword.Text == "" || txtTel.Text == "")
                 {
                     MessageBox.Show("Por favor complete todos los campos" + AcceptButton);
                 }
-                else if (!txtMail.Text.Contains("@") || !txtMail.Text.Contains("."))
+               
+                else if (validarEmail() == false)
                 {
 
                     MessageBox.Show("Escriba una direccion de Email valida" + AcceptButton);
 
                 }
+
                 else if (emailExist(errorCode))
                 {
                     MessageBox.Show("Ya existe una cuenta con este Email" + AcceptButton);
 
                 }
 
+                
+
+                
 
             }
 
@@ -145,7 +151,29 @@ namespace Vista
 
  
         }
+        public bool validarEmail()
+        {
+            string emailFormato;
+            emailFormato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(txtMail.Text, emailFormato))
+            {
+                if (Regex.Replace(txtMail.Text, emailFormato, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
 
+
+       
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
