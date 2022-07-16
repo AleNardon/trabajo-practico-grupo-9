@@ -116,7 +116,7 @@
             this.txtDNI.Location = new System.Drawing.Point(18, 315);
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(315, 26);
-            this.txtDNI.TabIndex = 6;
+            this.txtDNI.TabIndex = 4;
             this.txtDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDNI_KeyPress);
             // 
             // maillbl
@@ -136,7 +136,7 @@
             this.txtMail.Location = new System.Drawing.Point(18, 213);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(315, 26);
-            this.txtMail.TabIndex = 8;
+            this.txtMail.TabIndex = 2;
             // 
             // tellbl
             // 
@@ -155,7 +155,7 @@
             this.txtTel.Location = new System.Drawing.Point(18, 369);
             this.txtTel.Name = "txtTel";
             this.txtTel.Size = new System.Drawing.Size(315, 26);
-            this.txtTel.TabIndex = 10;
+            this.txtTel.TabIndex = 5;
             this.txtTel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTel_KeyPress);
             // 
             // btnRegister
@@ -169,7 +169,7 @@
             this.btnRegister.Location = new System.Drawing.Point(9, 500);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(149, 33);
-            this.btnRegister.TabIndex = 11;
+            this.btnRegister.TabIndex = 7;
             this.btnRegister.Text = "Registrarse";
             this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
@@ -185,7 +185,7 @@
             this.btnLogIn.Location = new System.Drawing.Point(15, 439);
             this.btnLogIn.Name = "btnLogIn";
             this.btnLogIn.Size = new System.Drawing.Size(121, 23);
-            this.btnLogIn.TabIndex = 12;
+            this.btnLogIn.TabIndex = 6;
             this.btnLogIn.Text = "Iniciar Sesión";
             this.btnLogIn.UseVisualStyleBackColor = false;
             this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
@@ -208,7 +208,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '•';
             this.txtPassword.Size = new System.Drawing.Size(315, 26);
-            this.txtPassword.TabIndex = 14;
+            this.txtPassword.TabIndex = 3;
             // 
             // label2
             // 
@@ -232,7 +232,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(172, 502);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(158, 31);
-            this.btnCancelar.TabIndex = 16;
+            this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
