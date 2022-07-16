@@ -60,7 +60,7 @@
             // btnAceptar
             // 
             this.btnAceptar.BackColor = System.Drawing.Color.Navy;
-            this.btnAceptar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnAceptar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnAceptar.FlatAppearance.BorderSize = 0;
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

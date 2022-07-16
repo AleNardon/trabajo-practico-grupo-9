@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,10 +44,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(119, 25);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(89, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(272, 49);
+            this.label1.Size = new System.Drawing.Size(218, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "Iniciar Sesión";
             // 
@@ -54,10 +54,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(77, 106);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(58, 86);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 21);
+            this.label2.Size = new System.Drawing.Size(50, 19);
             this.label2.TabIndex = 1;
             this.label2.Text = "Email:";
             // 
@@ -65,54 +64,50 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(77, 177);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(58, 144);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 21);
+            this.label3.Size = new System.Drawing.Size(94, 19);
             this.label3.TabIndex = 2;
             this.label3.Text = "Contraseña:";
             // 
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(81, 136);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmail.Location = new System.Drawing.Point(61, 110);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(294, 28);
+            this.txtEmail.Size = new System.Drawing.Size(222, 24);
             this.txtEmail.TabIndex = 3;
             // 
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(81, 202);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPassword.Location = new System.Drawing.Point(61, 164);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '•';
-            this.txtPassword.Size = new System.Drawing.Size(294, 28);
+            this.txtPassword.Size = new System.Drawing.Size(222, 24);
             this.txtPassword.TabIndex = 4;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(77, 316);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(58, 257);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(282, 21);
+            this.label4.Size = new System.Drawing.Size(233, 19);
             this.label4.TabIndex = 5;
             this.label4.Text = "No tiene una cuenta? Registrese";
             // 
             // btnlogIn
             // 
             this.btnlogIn.BackColor = System.Drawing.Color.Navy;
+            this.btnlogIn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnlogIn.FlatAppearance.BorderSize = 0;
             this.btnlogIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlogIn.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlogIn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnlogIn.Location = new System.Drawing.Point(81, 253);
-            this.btnlogIn.Margin = new System.Windows.Forms.Padding(4);
+            this.btnlogIn.Location = new System.Drawing.Point(61, 206);
             this.btnlogIn.Name = "btnlogIn";
-            this.btnlogIn.Size = new System.Drawing.Size(294, 40);
+            this.btnlogIn.Size = new System.Drawing.Size(220, 32);
             this.btnlogIn.TabIndex = 6;
             this.btnlogIn.Text = "Iniciar Sesión";
             this.btnlogIn.UseVisualStyleBackColor = false;
@@ -121,14 +116,14 @@
             // btnRegister
             // 
             this.btnRegister.BackColor = System.Drawing.Color.Navy;
+            this.btnRegister.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegister.FlatAppearance.BorderSize = 0;
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRegister.Location = new System.Drawing.Point(81, 352);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRegister.Location = new System.Drawing.Point(61, 286);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(141, 37);
+            this.btnRegister.Size = new System.Drawing.Size(106, 30);
             this.btnRegister.TabIndex = 7;
             this.btnRegister.Text = "Registrarse";
             this.btnRegister.UseVisualStyleBackColor = false;
@@ -137,26 +132,26 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Navy;
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCancel.Location = new System.Drawing.Point(250, 352);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Location = new System.Drawing.Point(188, 286);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(125, 37);
+            this.btnCancel.Size = new System.Drawing.Size(94, 30);
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // LogIn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(487, 432);
+            this.ClientSize = new System.Drawing.Size(365, 351);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnlogIn);
@@ -166,8 +161,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LogIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Iniciar Sesión";
