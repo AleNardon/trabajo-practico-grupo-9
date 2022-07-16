@@ -79,119 +79,73 @@ namespace Vista
 
         /* TRY CATCH DE REGISTRO */
 
+        SQLiteErrorCode errorCode;
+
         private void btnRegister_Click(object sender, EventArgs e)
         {
 
             SQLiteConnection cn = new SQLiteConnection(conexion);
-            
-                try
-                {
-                    string query = "Insert into USUARIOS (NOMBRE, APELLIDO, EMAIL, CONTRASENA, DNI, TELEFONO) values ('" + txtNombre.Text + "','" + txtApellido.Text + "','" + txtMail.Text + "','" + txtPassword.Text + "'," + txtDNI.Text + "," + txtTel.Text + ")";
-                    SQLiteDataAdapter da = new SQLiteDataAdapter(query, cn);
-                    cn.Open();
 
-                    da.SelectCommand.ExecuteNonQuery();
+            try
+            {
+                string query = "Insert into USUARIOS (NOMBRE, APELLIDO, EMAIL, CONTRASENA, DNI, TELEFONO) values ('" + txtNombre.Text + "','" + txtApellido.Text + "','" + txtMail.Text + "','" + txtPassword.Text + "'," + txtDNI.Text + "," + txtTel.Text + ")";
+                SQLiteDataAdapter da = new SQLiteDataAdapter(query, cn);
+                cn.Open();
 
-                    MessageBox.Show("Usuario creado con exito. Bienvenido! " + AcceptButton);
+                da.SelectCommand.ExecuteNonQuery();
 
-                    Usuario usuarioForm = new Usuario();
-                    this.Hide();
+                MessageBox.Show("Usuario creado con exito. Bienvenido! " + AcceptButton);
 
-                    usuarioForm.ShowDialog();
+                Usuario usuarioForm = new Usuario();
+                this.Hide();
+
+                usuarioForm.ShowDialog();
 
 
 
             }
 
-            
 
-            catch (Exception)
+
+            catch (SQLiteException)
+            {
+
+                if (txtNombre.Text == "" || txtApellido.Text == "" || txtMail.Text == "" || txtDNI.Text == "" || txtPassword.Text == "" || txtTel.Text == "")
+                {
+                    MessageBox.Show("Por favor complete todos los campos" + AcceptButton);
+                }
+                else if (!txtMail.Text.Contains("@") || !txtMail.Text.Contains("."))
                 {
 
-                    if (txtNombre.Text == "" || txtApellido.Text == "" || txtMail.Text == "" || txtDNI.Text == "" || txtPassword.Text == "" || txtTel.Text == "")
-                    {
-                        MessageBox.Show("Por favor complete todos los campos" + AcceptButton);
-                    } 
-                     else if (!txtMail.Text.Contains("@") || !txtMail.Text.Contains(".")) 
-                    {
-                        
-                        MessageBox.Show("Escriba una direccion de Email valida" + AcceptButton);
+                    MessageBox.Show("Escriba una direccion de Email valida" + AcceptButton);
 
-                    }
-                     else if (emailExist() == true)
-                    {
-                        MessageBox.Show("Ya existe una cuenta con este Email" + AcceptButton);
-                        
-                    }
+                }
+                else if (emailExist(errorCode))
+                {
+                    MessageBox.Show("Ya existe una cuenta con este Email" + AcceptButton);
 
-                  //  else if (dniExist() == true)
-                   // {
-                     //   MessageBox.Show("Ya existe una cuenta con este DNI" + AcceptButton);
+                }
 
-                  //  }
 
-                  }
+            }
 
                 finally
                 {
                     cn.Close();
 
-                }
+            }
 
         }
 
 
-        public bool emailExist()
+        public bool emailExist(SQLiteErrorCode errorCode)
         {
-            bool resultado = false;
+            errorCode = SQLiteErrorCode.Abort;
+            return true;
 
-            SQLiteConnection cn = new SQLiteConnection(conexion);
-            cn.Open();
-            string query = "select EMAIL from USUARIOS where EMAIL = '" + txtMail.Text + "'";
-            SQLiteCommand cmd = new SQLiteCommand(query, cn);
-
-            SQLiteDataReader reader = cmd.ExecuteReader();
-
-
-            if (reader.HasRows)
-            {
-                resultado = true;
-                return resultado;
-
-            }
-            else
-            {
-                return resultado;
-
-            }
+ 
         }
 
-        //public bool dniExist()
-      //  {
-           // bool resultado = false;
-//
-  //          SQLiteConnection cn = new SQLiteConnection(conexion);
-         //   cn.Open();
-         //   string query = "select DNI from USUARIOS where DNI =  '" + txtDNI.Text + "'";
-        // /   SQLiteCommand cmd = new SQLiteCommand(query, cn);
-
-         //   SQLiteDataReader reader = cmd.ExecuteReader();
-
-
-        //    if (reader.HasRows)
-        //    {
-        //        resultado = true;
-           //     return resultado;
-
-       //     }
-      //      else
-///{
-             //   return resultado;
-      //          
-      //      }
-
- //       }
-//
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
