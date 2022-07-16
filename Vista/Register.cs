@@ -92,7 +92,7 @@ namespace Vista
 
                     da.SelectCommand.ExecuteNonQuery();
 
-                    MessageBox.Show("Usuario creado con exito");
+                    MessageBox.Show("Usuario creado con exito. Bienvenido! " + AcceptButton);
 
                     Usuario usuarioForm = new Usuario();
                     this.Hide();

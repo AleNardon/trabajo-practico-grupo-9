@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Welcome));
             this.label1 = new System.Windows.Forms.Label();
             this.btnLogIn = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
@@ -38,24 +39,23 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(212, 49);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(159, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(325, 61);
+            this.label1.Size = new System.Drawing.Size(261, 49);
             this.label1.TabIndex = 0;
             this.label1.Text = "BIENVENIDO";
             // 
             // btnLogIn
             // 
             this.btnLogIn.BackColor = System.Drawing.Color.Navy;
+            this.btnLogIn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogIn.FlatAppearance.BorderSize = 0;
             this.btnLogIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogIn.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogIn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLogIn.Location = new System.Drawing.Point(244, 139);
-            this.btnLogIn.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogIn.Location = new System.Drawing.Point(183, 113);
             this.btnLogIn.Name = "btnLogIn";
-            this.btnLogIn.Size = new System.Drawing.Size(252, 54);
+            this.btnLogIn.Size = new System.Drawing.Size(189, 44);
             this.btnLogIn.TabIndex = 1;
             this.btnLogIn.Text = "Iniciar Sesion";
             this.btnLogIn.UseVisualStyleBackColor = false;
@@ -64,14 +64,14 @@
             // btnRegister
             // 
             this.btnRegister.BackColor = System.Drawing.Color.Navy;
+            this.btnRegister.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegister.FlatAppearance.BorderSize = 0;
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRegister.Location = new System.Drawing.Point(244, 228);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRegister.Location = new System.Drawing.Point(183, 185);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(252, 54);
+            this.btnRegister.Size = new System.Drawing.Size(189, 44);
             this.btnRegister.TabIndex = 2;
             this.btnRegister.Text = "Registrarse";
             this.btnRegister.UseVisualStyleBackColor = false;
@@ -80,14 +80,14 @@
             // btnSalir
             // 
             this.btnSalir.BackColor = System.Drawing.Color.Navy;
+            this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalir.FlatAppearance.BorderSize = 0;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSalir.Location = new System.Drawing.Point(244, 312);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalir.Location = new System.Drawing.Point(183, 254);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(252, 54);
+            this.btnSalir.Size = new System.Drawing.Size(189, 44);
             this.btnSalir.TabIndex = 3;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
@@ -95,16 +95,15 @@
             // 
             // Welcome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(820, 431);
+            this.ClientSize = new System.Drawing.Size(597, 350);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnLogIn);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Welcome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema";
