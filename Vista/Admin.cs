@@ -18,10 +18,6 @@ namespace Vista
             InitializeComponent();
         }
 
-        DataSet ds = new DataSet();
-        DataTable dt = new DataTable();
-
-        public string conexion = "Data Source= DataBasePeaje.db;Version=3;New=False;Compress=True;";
 
 
         private void Admin_Load(object sender, EventArgs e)

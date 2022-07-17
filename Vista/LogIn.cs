@@ -39,60 +39,79 @@ namespace Vista
 
         private void btnlogIn_Click(object sender, EventArgs e)
         {
+
             using (SQLiteConnection cn = new SQLiteConnection(conexion))
             {
+
                 cn.Open();
-
                 string query = "select EMAIL, CONTRASENA from USUARIOS where EMAIL = @vEMAIL and CONTRASENA = @vCONTRASENA";
-                SQLiteCommand cmd = new SQLiteCommand(query, cn);
 
-                cmd.Parameters.AddWithValue("@vEMAIL", txtEmail.Text);
-                cmd.Parameters.AddWithValue("@vCONTRASENA", txtPassword.Text);
-
-
-
-                SQLiteDataReader reader = cmd.ExecuteReader();
-
-                if (reader.Read())
+                using (SQLiteCommand cmd = new SQLiteCommand(query, cn))
                 {
-                    string queryAdmin = "select EMAIL, ADMIN from USUARIOS where EMAIL = @vEMAIL and ADMIN = @vADMIN ";
 
-                    SQLiteCommand cmd2 = new SQLiteCommand(queryAdmin, cn);
-                    cmd2.Parameters.AddWithValue("@vEMAIL", txtEmail.Text);
-                    cmd2.Parameters.AddWithValue("@vADMIN", "Y");
+                    cmd.Parameters.AddWithValue("@vEMAIL", txtEmail.Text);
+                    cmd.Parameters.AddWithValue("@vCONTRASENA", txtPassword.Text);
 
-
-                    SQLiteDataReader newReader = cmd2.ExecuteReader();
-
-                    if (newReader.Read())
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
                     {
 
-                    Admin adminForm = new Admin();
-                     this.Hide();
+                      
 
-                     adminForm.ShowDialog();
-                    
+                        if (reader.Read())
+                        {
+                            string queryAdmin = "select EMAIL, ADMIN from USUARIOS where EMAIL = @vEMAIL and ADMIN = @vADMIN ";
 
-                    } else
-                    {
-                        Usuario usuarioForm = new Usuario();
-                        this.Hide();
+                            SQLiteCommand cmd2 = new SQLiteCommand(queryAdmin, cn);
+                            cmd2.Parameters.AddWithValue("@vEMAIL", txtEmail.Text);
+                            cmd2.Parameters.AddWithValue("@vADMIN", "Y");
 
-                       usuarioForm.ShowDialog();
+
+                            SQLiteDataReader newReader = cmd2.ExecuteReader();
+
+                            if (newReader.Read())
+                            {
+                                reader.Close();
+                                newReader.Close();
+                                cn.Close();
+
+
+                                Admin adminForm = new Admin();
+                                this.Hide();
+
+                                adminForm.ShowDialog();
+
+
+                            }
+                            else
+                            {
+                                reader.Close();
+                                newReader.Close();
+                                cn.Close();
+
+                                Usuario usuarioForm = new Usuario();
+                                this.Hide();
+
+                                usuarioForm.ShowDialog();
+
+
+                            }
+
+                        }
+                        else
+                        {
+                            reader.Close();
+                            cn.Close();
+
+                            MessageBox.Show("No se encontro usuario");
+
+                        }
+
+
 
 
                     }
 
                 }
-                else
-                {
-                    MessageBox.Show("No se encontro usuario");
-
-                }
-
-
-
-
 
 
             }

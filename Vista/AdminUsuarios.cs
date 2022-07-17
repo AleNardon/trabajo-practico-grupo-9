@@ -39,6 +39,7 @@ namespace Vista
             da.Fill(dt);
 
             dgvUsuarios.DataSource = dt;
+            cn.Close();
         }
 
     }
