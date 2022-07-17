@@ -24,7 +24,9 @@ namespace Vista
 
         private void AdminTarifas_Load(object sender, EventArgs e)
         {
-           
+            btnMostrar_Click(sender, e);
+
+
         }
 
 
