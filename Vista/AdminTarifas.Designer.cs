@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminTarifas));
             this.label1 = new System.Windows.Forms.Label();
             this.txtCamion = new System.Windows.Forms.TextBox();
             this.txtMoto = new System.Windows.Forms.TextBox();
@@ -37,7 +38,6 @@
             this.btnActualizar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnMostrar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -100,11 +100,12 @@
             // btnActualizar
             // 
             this.btnActualizar.BackColor = System.Drawing.Color.Navy;
+            this.btnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnActualizar.FlatAppearance.BorderSize = 0;
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnActualizar.Location = new System.Drawing.Point(122, 113);
+            this.btnActualizar.Location = new System.Drawing.Point(54, 121);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(104, 32);
             this.btnActualizar.TabIndex = 4;
@@ -126,32 +127,18 @@
             // btnSalir
             // 
             this.btnSalir.BackColor = System.Drawing.Color.Navy;
+            this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.FlatAppearance.BorderSize = 0;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSalir.Location = new System.Drawing.Point(232, 113);
+            this.btnSalir.Location = new System.Drawing.Point(164, 121);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(107, 32);
             this.btnSalir.TabIndex = 5;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
-            // 
-            // btnMostrar
-            // 
-            this.btnMostrar.BackColor = System.Drawing.Color.Navy;
-            this.btnMostrar.FlatAppearance.BorderSize = 0;
-            this.btnMostrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMostrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMostrar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnMostrar.Location = new System.Drawing.Point(12, 113);
-            this.btnMostrar.Name = "btnMostrar";
-            this.btnMostrar.Size = new System.Drawing.Size(104, 32);
-            this.btnMostrar.TabIndex = 3;
-            this.btnMostrar.Text = "Mostrar";
-            this.btnMostrar.UseVisualStyleBackColor = false;
-            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
             // 
             // AdminTarifas
             // 
@@ -159,7 +146,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnSalir;
             this.ClientSize = new System.Drawing.Size(354, 197);
-            this.Controls.Add(this.btnMostrar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnActualizar);
@@ -169,8 +155,10 @@
             this.Controls.Add(this.txtMoto);
             this.Controls.Add(this.txtCamion);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AdminTarifas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "S";
             this.Load += new System.EventHandler(this.AdminTarifas_Load);
             this.ResumeLayout(false);
@@ -189,6 +177,5 @@
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button btnMostrar;
     }
 }

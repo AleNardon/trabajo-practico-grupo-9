@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnTarifas = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -35,6 +36,7 @@
             // btnUsuarios
             // 
             this.btnUsuarios.BackColor = System.Drawing.Color.Navy;
+            this.btnUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUsuarios.FlatAppearance.BorderSize = 0;
             this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -50,6 +52,7 @@
             // btnTarifas
             // 
             this.btnTarifas.BackColor = System.Drawing.Color.Navy;
+            this.btnTarifas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTarifas.FlatAppearance.BorderSize = 0;
             this.btnTarifas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTarifas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -69,8 +72,10 @@
             this.ClientSize = new System.Drawing.Size(481, 208);
             this.Controls.Add(this.btnTarifas);
             this.Controls.Add(this.btnUsuarios);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Admin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
             this.Load += new System.EventHandler(this.Admin_Load);
             this.ResumeLayout(false);
