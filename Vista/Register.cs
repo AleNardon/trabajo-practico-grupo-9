@@ -127,7 +127,7 @@ namespace Vista
 
                 else if (emailExist(errorCode))
                 {
-                    MessageBox.Show("Ya existe una cuenta con este Email" + AcceptButton);
+                    MessageBox.Show("Ya existe una cuenta con este Email o DNI" + AcceptButton);
 
                 }
 
