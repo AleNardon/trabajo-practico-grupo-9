@@ -22,18 +22,7 @@ namespace Vista
 
         private void Admin_Load(object sender, EventArgs e)
         {
-            //SQLiteConnection cn = new SQLiteConnection(conexion);
-
-            //string query = "select * from USUARIOS";
-            //SQLiteDataAdapter da = new SQLiteDataAdapter(query, cn);
-
-            //da.SelectCommand.CommandType = CommandType.Text;
-
-            //cn.Open();
-            //da.Fill(dt);
-
-            //dgvUsuarios.DataSource = dt;
-
+            
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)
