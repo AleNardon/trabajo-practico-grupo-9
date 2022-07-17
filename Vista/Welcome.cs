@@ -40,5 +40,7 @@ namespace Vista
         {
             this.Close();
         }
+
+
     }
 }

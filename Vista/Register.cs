@@ -86,6 +86,8 @@ namespace Vista
         private void btnRegister_Click(object sender, EventArgs e)
         {
 
+
+
             SQLiteConnection cn = new SQLiteConnection(conexion);
 
 
@@ -129,9 +131,7 @@ namespace Vista
 
                 }
 
-                
 
-                
 
             }
 
@@ -174,15 +174,5 @@ namespace Vista
 
 
        
-
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

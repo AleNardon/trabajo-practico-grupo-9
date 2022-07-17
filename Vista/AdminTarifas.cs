@@ -17,36 +17,119 @@ namespace Vista
         {
             InitializeComponent();
         }
-
+        
         string conexion = "Data Source= DataBasePeaje.db;Version=3;New=False;Compress=True;";
 
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            
-        }
+        
 
         private void AdminTarifas_Load(object sender, EventArgs e)
         {
+           
+        }
+
+
+
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+
             using (SQLiteConnection cn = new SQLiteConnection(conexion))
             {
 
+
                 cn.Open();
+                string query = "UPDATE TARIFAS SET CAMION = " + txtCamion.Text + ", AUTO = " + txtAuto.Text + ", MOTO = " + txtMoto.Text + ";";
 
-                string query = "select * from TARIFAS";
 
-
-                SQLiteCommand cmd = new SQLiteCommand(query, cn);
-
-                SQLiteDataReader tarifas = cmd.ExecuteReader();
-
-                if (tarifas.Read())
+                using (SQLiteCommand cmd = new SQLiteCommand(query, cn))
                 {
-                    txtCamion.Text = tarifas["CAMION"].ToString();
-                    txtAuto.Text = tarifas["AUTO"].ToString();
-                    txtMoto.Text = tarifas["MOTO"].ToString();
+                    cmd.ExecuteNonQuery();
+                     MessageBox.Show("Tarifas acutalizadas correctamente" + AcceptButton);
+                    cn.Close();
+
+
+
 
                 }
+
+
             }
+
+
+        }
+
+    
+
+
+
+
+        private void btnMostrar_Click(object sender, EventArgs e)
+        {
+
+            using (SQLiteConnection cn = new SQLiteConnection(conexion))
+            {
+
+
+                cn.Open();
+                string query = "select * from TARIFAS";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, cn))
+                {
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+
+
+                    
+
+                        if (reader.Read())
+                        {
+                            txtCamion.Text = reader["CAMION"].ToString();
+                            txtAuto.Text = reader["AUTO"].ToString();
+                            txtMoto.Text = reader["MOTO"].ToString();
+                            reader.Close();
+                            cn.Close();
+
+
+
+                        }
+
+                    }
+                }
+
+
+
+
+
+                cn.Close();
+            }
+
+        }
+        public void onlyNumber(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsNumber(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+            }
+            return;
+
+        }
+
+        private void txtCamion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            onlyNumber(sender,e);
+        }
+
+        private void txtAuto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            onlyNumber(sender, e);
+
+        }
+
+        private void txtMoto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            onlyNumber(sender, e);
+
         }
     }
 }
