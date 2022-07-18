@@ -97,7 +97,10 @@ namespace Vista
                 SQLiteDataAdapter da = new SQLiteDataAdapter(query, cn);
                 cn.Open();
 
-                da.SelectCommand.ExecuteNonQuery();
+                if (validarEmail() == true)
+                {
+
+                    da.SelectCommand.ExecuteNonQuery();
 
                 MessageBox.Show("Usuario creado con exito. Bienvenido! " + AcceptButton);
 
@@ -106,7 +109,13 @@ namespace Vista
 
                 usuarioForm.ShowDialog();
 
-               
+                } else
+                {
+                    MessageBox.Show("Escriba una direccion de Email valida" + AcceptButton);
+
+                }
+
+
 
             }
 
@@ -118,13 +127,7 @@ namespace Vista
                     MessageBox.Show("Por favor complete todos los campos" + AcceptButton);
                 }
                
-                else if (validarEmail() == false)
-                {
-
-                    MessageBox.Show("Escriba una direccion de Email valida" + AcceptButton);
-
-                }
-
+               
                 else if (emailExist(errorCode))
                 {
                     MessageBox.Show("Ya existe una cuenta con este Email o DNI" + AcceptButton);
