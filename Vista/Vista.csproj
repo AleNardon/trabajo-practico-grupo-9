@@ -90,6 +90,13 @@
     <Compile Include="AdminUsuarios.Designer.cs">
       <DependentUpon>AdminUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminUsuariosActualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminUsuariosActualizar.Designer.cs">
+      <DependentUpon>AdminUsuariosActualizar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Datos.cs" />
     <Compile Include="LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,9 +128,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminUsuarios.resx">
       <DependentUpon>AdminUsuarios.cs</DependentUpon>
-      </EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminTarifas.resx">
       <DependentUpon>AdminTarifas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminUsuariosActualizar.resx">
+      <DependentUpon>AdminUsuariosActualizar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
