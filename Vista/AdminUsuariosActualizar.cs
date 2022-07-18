@@ -218,5 +218,13 @@ namespace Vista
             onlyNumber(sender, e);
 
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AdminUsuarios form = new AdminUsuarios();
+            form.ShowDialog();
+
+        }
     }
 }
