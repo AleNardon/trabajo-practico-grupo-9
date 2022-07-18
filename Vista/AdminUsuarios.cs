@@ -249,7 +249,8 @@ namespace Vista
                                 this.Close();
                                 actualizar.Show();
 
-                                reader.Close();
+
+                                    reader.Close();
 
                                     cn.Close();   
 
