@@ -28,12 +28,171 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.cmbUsuario = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtPatente = new System.Windows.Forms.TextBox();
+            this.txtTarifas = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtFecha = new System.Windows.Forms.TextBox();
+            this.btnContinuar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // cmbUsuario
+            // 
+            this.cmbUsuario.FormattingEnabled = true;
+            this.cmbUsuario.Items.AddRange(new object[] {
+            "Seleccione el tipo de vehículo ",
+            "Camión ",
+            "Auto ",
+            "Moto "});
+            this.cmbUsuario.Location = new System.Drawing.Point(61, 94);
+            this.cmbUsuario.Name = "cmbUsuario";
+            this.cmbUsuario.Size = new System.Drawing.Size(212, 28);
+            this.cmbUsuario.TabIndex = 0;
+            this.cmbUsuario.SelectedIndexChanged += new System.EventHandler(this.cmbUsuario_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(57, 71);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(126, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Tipo de vehiculo ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Navy;
+            this.label2.Location = new System.Drawing.Point(61, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(191, 37);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Seleccione:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(516, 71);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(146, 20);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Número de patente";
+            // 
+            // txtPatente
+            // 
+            this.txtPatente.Location = new System.Drawing.Point(520, 96);
+            this.txtPatente.Name = "txtPatente";
+            this.txtPatente.Size = new System.Drawing.Size(142, 26);
+            this.txtPatente.TabIndex = 4;
+            this.txtPatente.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // txtTarifas
+            // 
+            this.txtTarifas.Location = new System.Drawing.Point(307, 96);
+            this.txtTarifas.Name = "txtTarifas";
+            this.txtTarifas.ReadOnly = true;
+            this.txtTarifas.Size = new System.Drawing.Size(162, 26);
+            this.txtTarifas.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(311, 73);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 20);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Tarifa";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(311, 13);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(54, 20);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Fecha";
+            // 
+            // txtFecha
+            // 
+            this.txtFecha.Location = new System.Drawing.Point(307, 36);
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.ReadOnly = true;
+            this.txtFecha.Size = new System.Drawing.Size(154, 26);
+            this.txtFecha.TabIndex = 8;
+            // 
+            // btnContinuar
+            // 
+            this.btnContinuar.BackColor = System.Drawing.Color.Navy;
+            this.btnContinuar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnContinuar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContinuar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnContinuar.Location = new System.Drawing.Point(416, 170);
+            this.btnContinuar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnContinuar.Name = "btnContinuar";
+            this.btnContinuar.Size = new System.Drawing.Size(184, 77);
+            this.btnContinuar.TabIndex = 13;
+            this.btnContinuar.Text = "Continuar";
+            this.btnContinuar.UseVisualStyleBackColor = false;
+            this.btnContinuar.Click += new System.EventHandler(this.btnContinuar_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.Color.Navy;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSalir.Location = new System.Drawing.Point(130, 170);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(184, 77);
+            this.btnSalir.TabIndex = 14;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // Usuario
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(728, 273);
+            this.Controls.Add(this.btnSalir);
+            this.Controls.Add(this.btnContinuar);
+            this.Controls.Add(this.txtFecha);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtTarifas);
+            this.Controls.Add(this.txtPatente);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmbUsuario);
+            this.Name = "Usuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuario";
+            this.Load += new System.EventHandler(this.Usuario_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.ComboBox cmbUsuario;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtPatente;
+        private System.Windows.Forms.TextBox txtTarifas;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtFecha;
+        private System.Windows.Forms.Button btnContinuar;
+        private System.Windows.Forms.Button btnSalir;
     }
 }
