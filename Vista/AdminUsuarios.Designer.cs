@@ -38,6 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnRefresca = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -136,7 +137,7 @@
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(249, 47);
             this.btnActualizar.TabIndex = 12;
-            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.Text = "Modificar";
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
@@ -154,6 +155,20 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // btnRefresca
+            // 
+            this.btnRefresca.BackColor = System.Drawing.Color.Navy;
+            this.btnRefresca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresca.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresca.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnRefresca.Location = new System.Drawing.Point(12, 314);
+            this.btnRefresca.Name = "btnRefresca";
+            this.btnRefresca.Size = new System.Drawing.Size(249, 47);
+            this.btnRefresca.TabIndex = 14;
+            this.btnRefresca.Text = "Refrescar";
+            this.btnRefresca.UseVisualStyleBackColor = false;
+            this.btnRefresca.Click += new System.EventHandler(this.btnRefresca_Click);
+            // 
             // AdminUsuarios
             // 
             this.AcceptButton = this.btnAceptar;
@@ -161,6 +176,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(1170, 410);
+            this.Controls.Add(this.btnRefresca);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.txtDNI);
@@ -192,5 +208,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnRefresca;
     }
 }

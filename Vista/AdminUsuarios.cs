@@ -24,8 +24,6 @@ namespace Vista
 
         }
 
-
-
         private void AdminUsuarios_Load(object sender, EventArgs e)
         {
             cargarTabla();
@@ -247,7 +245,7 @@ namespace Vista
                             if (reader.Read())
                             {
                                 actualizar.Show();
-
+                                  
 
                                     reader.Close();
 
@@ -286,9 +284,9 @@ namespace Vista
                             {
 
                                     actualizar.Show();
-                                    
 
-                                reader.Close();
+                                   
+                                    reader.Close();
 
                                 cn.Close();
 
@@ -321,6 +319,11 @@ namespace Vista
 
 
             }
+        }
+
+        private void btnRefresca_Click(object sender, EventArgs e)
+        {
+            cargarTabla();
         }
     }
 

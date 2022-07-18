@@ -112,7 +112,7 @@ namespace Vista
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-
+            
             using (SQLiteConnection cn = new SQLiteConnection(conexion))
             {
                 string resultAdmin = YesNo();
@@ -132,7 +132,8 @@ namespace Vista
                     MessageBox.Show("Usuario acutalizado correctamente" + AcceptButton);
                     cn.Close();
 
-
+                        btnCancel_Click(sender, e);
+                        
                 }
 
                 } catch (Exception)
