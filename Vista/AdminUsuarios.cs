@@ -27,142 +27,142 @@ namespace Vista
         private void AdminUsuarios_Load(object sender, EventArgs e)
         {
             cargarTabla();
-           
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             using (SQLiteConnection cn = new SQLiteConnection(conexion))
             {
-                
-                    string dni = txtDNI.Text;
-                    string id = txtID.Text;
 
-                    if (dni != "")
+                string dni = txtDNI.Text;
+                string id = txtID.Text;
+
+                if (dni != "")
+                {
+
+
+
+                    cn.Open();
+
+                    string query = "select DNI from USUARIOS where DNI = " + txtDNI.Text;
+
+
+
+                    using (SQLiteCommand cmd = new SQLiteCommand(query, cn))
                     {
 
 
 
-                        cn.Open();
 
-                        string query = "select DNI from USUARIOS where DNI = " + txtDNI.Text;
-
-
-
-                        using (SQLiteCommand cmd = new SQLiteCommand(query, cn))
+                        using (SQLiteDataReader reader = cmd.ExecuteReader())
                         {
 
-
-
-
-                            using (SQLiteDataReader reader = cmd.ExecuteReader())
+                            if (reader.Read())
                             {
+                                string query2 = "delete from USUARIOS where DNI = " + txtDNI.Text;
 
-                                if (reader.Read())
+                                using (SQLiteCommand cmd2 = new SQLiteCommand(query2, cn))
                                 {
-                                    string query2 = "delete from USUARIOS where DNI = " + txtDNI.Text;
-
-                                    using (SQLiteCommand cmd2 = new SQLiteCommand(query2, cn))
-                                    {
-
-                                        reader.Close();
-                                        cmd2.ExecuteNonQuery();
-                                        MessageBox.Show("Usuario eliminado correctamente");
-
-                                      
-                                        cargarTabla();
-
-                                        reader.Close();
-
-                                        cn.Close();
-
-
-
-                                    }
-
-                                }
-                                else
-                                {
-                                    MessageBox.Show("No existe un usuario con ese DNI o ID");
 
                                     reader.Close();
-                                    cn.Close();
-                                    
-
-                                }
-                            }
+                                    cmd2.ExecuteNonQuery();
+                                    MessageBox.Show("Usuario eliminado correctamente");
 
 
-
-                        }
-
-                    }
-                    else if (id != "")
-                    {
-
-
-                        cn.Open();
-
-                        string query = "select ID from USUARIOS where ID = " + txtID.Text;
-
-
-
-                        using (SQLiteCommand cmd = new SQLiteCommand(query, cn))
-                        {
-
-
-
-
-                            using (SQLiteDataReader reader = cmd.ExecuteReader())
-                            {
-
-                                if (reader.Read())
-                                {
-                                    string query2 = "delete from USUARIOS where ID = " + txtID.Text;
-
-                                    using (SQLiteCommand cmd2 = new SQLiteCommand(query2, cn))
-                                    {
-
-                                        reader.Close();
-                                        cmd2.ExecuteNonQuery();
-                                        MessageBox.Show("Usuario eliminado correctamente");
-
-                                        cargarTabla();
-
-
-                                        reader.Close();
-
-                                        cn.Close();
-
-
-
-                                    }
-
-                                }
-                                else
-                                {
-                                    MessageBox.Show("No existe un usuario con ese DNI o ID");
+                                    cargarTabla();
 
                                     reader.Close();
+
                                     cn.Close();
 
+
+
                                 }
+
                             }
+                            else
+                            {
+                                MessageBox.Show("No existe un usuario con ese DNI o ID");
+
+                                reader.Close();
+                                cn.Close();
 
 
-
+                            }
                         }
 
+
+
                     }
-                    else
+
+                }
+                else if (id != "")
+                {
+
+
+                    cn.Open();
+
+                    string query = "select ID from USUARIOS where ID = " + txtID.Text;
+
+
+
+                    using (SQLiteCommand cmd = new SQLiteCommand(query, cn))
                     {
-                        if (string.IsNullOrEmpty(txtDNI.Text) && string.IsNullOrEmpty(txtID.Text))
+
+
+
+
+                        using (SQLiteDataReader reader = cmd.ExecuteReader())
                         {
-                            MessageBox.Show("Complete algun campo");
+
+                            if (reader.Read())
+                            {
+                                string query2 = "delete from USUARIOS where ID = " + txtID.Text;
+
+                                using (SQLiteCommand cmd2 = new SQLiteCommand(query2, cn))
+                                {
+
+                                    reader.Close();
+                                    cmd2.ExecuteNonQuery();
+                                    MessageBox.Show("Usuario eliminado correctamente");
+
+                                    cargarTabla();
+
+
+                                    reader.Close();
+
+                                    cn.Close();
+
+
+
+                                }
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("No existe un usuario con ese DNI o ID");
+
+                                reader.Close();
+                                cn.Close();
+
+                            }
                         }
 
+
+
                     }
-           
+
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(txtDNI.Text) && string.IsNullOrEmpty(txtID.Text))
+                    {
+                        MessageBox.Show("Complete algun campo");
+                    }
+
+                }
+
 
 
 
@@ -195,6 +195,14 @@ namespace Vista
 
         }
 
+        private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtID.Text = dgvUsuarios.SelectedCells[0].Value.ToString();
+            txtDNI.Text = dgvUsuarios.SelectedCells[5].Value.ToString();
+
+
+
+        }
     }
 
 }
