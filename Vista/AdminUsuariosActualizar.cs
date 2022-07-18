@@ -50,9 +50,13 @@ namespace Vista
                             txtContrasena.Text = reader["CONTRASENA"].ToString();
                             txtDNI.Text = reader["DNI"].ToString();
                             txtTelefono.Text = reader["TELEFONO"].ToString();
+                            chkAdmin.Checked = reader["ADMIN"].Equals(true);
+
+                                selectedID = reader["ID"].ToString();
 
 
-                            reader.Close();
+
+                                reader.Close();
                             cn.Close();
                         } else
                             {
@@ -84,6 +88,10 @@ namespace Vista
                                 txtContrasena.Text = reader["CONTRASENA"].ToString();
                                 txtDNI.Text = reader["DNI"].ToString();
                                 txtTelefono.Text = reader["TELEFONO"].ToString();
+                                chkAdmin.Checked = reader["ADMIN"].Equals(true);
+
+                                selectedID = reader["ID"].ToString();
+
 
 
                                 reader.Close();
@@ -97,6 +105,117 @@ namespace Vista
 
                 }
             }
+
+        }
+        string selectedID;
+
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+            using (SQLiteConnection cn = new SQLiteConnection(conexion))
+            {
+                string resultAdmin = YesNo();
+
+                try
+                {
+
+
+                cn.Open();
+                string query = "update USUARIOS set NOMBRE = '" + txtNombre.Text + "', APELLIDO = '" + txtApellido.Text + "', EMAIL = '" + txtEmail.Text + "', CONTRASENA = '" + txtContrasena.Text + "', DNI = " + txtDNI.Text + ", TELEFONO = " + txtTelefono.Text + ", ADMIN = '" + resultAdmin + "' WHERE ID = " + selectedID + ";";
+
+                
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, cn))
+                {
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Usuario acutalizado correctamente" + AcceptButton);
+                    cn.Close();
+                    this.Close();
+
+                    AdminUsuarios form = new AdminUsuarios();
+                        form.ShowDialog();
+
+
+                }
+
+                } catch (Exception)
+                {
+                    if (emailExist(errorCode))
+                    {
+                        MessageBox.Show("Ya existe una cuenta con este Email o DNI" + AcceptButton);
+
+                    }
+                }
+
+            }
+        }
+        SQLiteErrorCode errorCode;
+
+        public string YesNo()
+        {
+            string Y = "Y";
+            string N = "N";
+
+            bool admin = chkAdmin.Checked.Equals(true);
+
+
+            if (admin)
+            {
+                return Y;
+            } else
+            {
+                return N;
+            }
+        }
+
+        public bool emailExist(SQLiteErrorCode errorCode)
+        {
+            errorCode = SQLiteErrorCode.Abort;
+            return true;
+
+
+        }
+
+        public void onlyLetter(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && !(char.IsWhiteSpace(e.KeyChar)))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        public void onlyNumber(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsNumber(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+            }
+            return;
+
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            onlyLetter(sender, e);
+        }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            onlyLetter(sender, e);
+
+        }
+
+        private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            onlyNumber(sender, e);
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            onlyNumber(sender, e);
 
         }
     }
