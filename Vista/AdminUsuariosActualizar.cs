@@ -30,6 +30,8 @@ namespace Vista
             using (SQLiteConnection cn = new SQLiteConnection(conexion))
             {
 
+                if (Datos.ID != "")
+                {
 
                 cn.Open();
                 string query = "select * from USUARIOS where ID = " + Datos.ID;
@@ -38,8 +40,6 @@ namespace Vista
                 {
                     using (SQLiteDataReader reader = cmd.ExecuteReader())
                     {
-
-
 
 
                         if (reader.Read())
@@ -52,28 +52,51 @@ namespace Vista
                             txtTelefono.Text = reader["TELEFONO"].ToString();
 
 
-
-
-
                             reader.Close();
                             cn.Close();
-
-
-
-                        }
+                        } else
+                            {
+                                cn.Close();
+                            }
 
                     }
                 }
 
+                }
+
+                else if (Datos.DNI != "")
+                {
+
+                    cn.Open();
+                    string query = "select * from USUARIOS where DNI = " + Datos.DNI;
+
+                    using (SQLiteCommand cmd = new SQLiteCommand(query, cn))
+                    {
+                        using (SQLiteDataReader reader = cmd.ExecuteReader())
+                        {
 
 
+                            if (reader.Read())
+                            {
+                                txtNombre.Text = reader["NOMBRE"].ToString();
+                                txtApellido.Text = reader["APELLIDO"].ToString();
+                                txtEmail.Text = reader["EMAIL"].ToString();
+                                txtContrasena.Text = reader["CONTRASENA"].ToString();
+                                txtDNI.Text = reader["DNI"].ToString();
+                                txtTelefono.Text = reader["TELEFONO"].ToString();
 
 
-                cn.Close();
+                                reader.Close();
+                                cn.Close();
+                            } else {
+                                cn.Close();
+                                    }
+
+                        }
+                    }
+
+                }
             }
-
-
-
 
         }
     }
