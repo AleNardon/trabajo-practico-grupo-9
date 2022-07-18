@@ -27,13 +27,51 @@ namespace Vista
         {
 
 
+            using (SQLiteConnection cn = new SQLiteConnection(conexion))
+            {
 
-            txtNombre.Text = Datos.Nombre;
-            txtApellido.Text = Datos.Apellido;
-            txtEmail.Text = Datos.Email;
-            txtContrasena.Text = Datos.Contrasena;
-            txtDNI.Text = Datos.DNI;
-            txtTelefono.Text = Datos.Telefono;
+
+                cn.Open();
+                string query = "select * from USUARIOS where ID = " + Datos.ID;
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, cn))
+                {
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+
+
+
+
+                        if (reader.Read())
+                        {
+                            txtNombre.Text = reader["NOMBRE"].ToString();
+                            txtApellido.Text = reader["APELLIDO"].ToString();
+                            txtEmail.Text = reader["EMAIL"].ToString();
+                            txtContrasena.Text = reader["CONTRASENA"].ToString();
+                            txtDNI.Text = reader["DNI"].ToString();
+                            txtTelefono.Text = reader["TELEFONO"].ToString();
+
+
+
+
+
+                            reader.Close();
+                            cn.Close();
+
+
+
+                        }
+
+                    }
+                }
+
+
+
+
+
+                cn.Close();
+            }
+
 
 
 

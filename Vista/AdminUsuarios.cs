@@ -24,7 +24,7 @@ namespace Vista
 
         }
 
-        
+
 
         private void AdminUsuarios_Load(object sender, EventArgs e)
         {
@@ -35,7 +35,7 @@ namespace Vista
         private void btnDelete_Click(object sender, EventArgs e)
         {
 
-            
+
             using (SQLiteConnection cn = new SQLiteConnection(conexion))
             {
 
@@ -208,24 +208,114 @@ namespace Vista
 
         }
 
-        
+
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             AdminUsuariosActualizar actualizar = new AdminUsuariosActualizar();
 
-            Datos.Nombre = dgvUsuarios.SelectedCells[1].Value.ToString();
-            Datos.Apellido = dgvUsuarios.SelectedCells[2].Value.ToString();
-            Datos.Email = dgvUsuarios.SelectedCells[3].Value.ToString();
-            Datos.Contrasena = dgvUsuarios.SelectedCells[4].Value.ToString();
-            Datos.DNI = dgvUsuarios.SelectedCells[5].Value.ToString();
-            Datos.Telefono = dgvUsuarios.SelectedCells[6].Value.ToString();
+            
+            Datos.ID = txtID.Text;
+
+
+            using (SQLiteConnection cn = new SQLiteConnection(conexion))
+            {
+
+
+
+                if (!string.IsNullOrEmpty(txtDNI.Text) || !string.IsNullOrEmpty(txtID.Text))
+                {
+
+                    if (txtID.Text != "")
+                    {
+
+
+                    cn.Open();
+
+                    string query = "select ID from USUARIOS where ID = " + txtID.Text;
+
+
+
+                    using (SQLiteCommand cmd = new SQLiteCommand(query, cn))
+                    {
+
+                        using (SQLiteDataReader reader = cmd.ExecuteReader())
+                        {
+
+                            if (reader.Read())
+                            {
+                                actualizar.Show();
+
+                                reader.Close();
+
+                                    cn.Close();   
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("No existe un usuario con ese DNI o ID");
+
+                                reader.Close();
+                                cn.Close();
+
+                            }
+                        }
+
+                    }
+
+                    }
+
+                    else if (txtDNI.Text != "")
+                    {
+
+                        cn.Open();
+
+                    string query2 = "select DNI from USUARIOS where DNI = " + txtDNI.Text;
+
+
+                    using (SQLiteCommand cmd = new SQLiteCommand(query2, cn))
+                    {
+
+                        using (SQLiteDataReader reader = cmd.ExecuteReader())
+                        {
+
+                            if (reader.Read())
+                            {
+                                actualizar.Show();
+
+                                reader.Close();
+
+                                cn.Close();
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("No existe un usuario con ese DNI o ID");
+
+                                reader.Close();
+                                cn.Close();
+
+                            }
+                        }
+
+                    }
+                    }
 
 
 
 
 
-            actualizar.Show();
+                }
+
+                else
+                {
+                    MessageBox.Show("Complete algun campo");
+                }
+
+
+
+
+            }
         }
     }
 
