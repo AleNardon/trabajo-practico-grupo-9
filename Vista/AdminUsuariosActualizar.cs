@@ -131,10 +131,6 @@ namespace Vista
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Usuario acutalizado correctamente" + AcceptButton);
                     cn.Close();
-                    this.Close();
-
-                    AdminUsuarios form = new AdminUsuarios();
-                        form.ShowDialog();
 
 
                 }
@@ -222,8 +218,6 @@ namespace Vista
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
-            AdminUsuarios form = new AdminUsuarios();
-            form.ShowDialog();
 
         }
     }
