@@ -36,7 +36,7 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.SuspendLayout();
@@ -125,18 +125,19 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "DNI:";
             // 
-            // button1
+            // btnActualizar
             // 
-            this.button1.BackColor = System.Drawing.Color.Navy;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(12, 182);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(249, 47);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Actualizar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnActualizar.BackColor = System.Drawing.Color.Navy;
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnActualizar.Location = new System.Drawing.Point(12, 182);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(249, 47);
+            this.btnActualizar.TabIndex = 12;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnDelete
             // 
@@ -160,7 +161,7 @@
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(1170, 410);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.txtDNI);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtID);
@@ -187,7 +188,7 @@
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.TextBox txtDNI;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnDelete;
     }
 }

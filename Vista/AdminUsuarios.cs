@@ -24,6 +24,8 @@ namespace Vista
 
         }
 
+        
+
         private void AdminUsuarios_Load(object sender, EventArgs e)
         {
             cargarTabla();
@@ -32,6 +34,8 @@ namespace Vista
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+
+            
             using (SQLiteConnection cn = new SQLiteConnection(conexion))
             {
 
@@ -202,6 +206,26 @@ namespace Vista
 
 
 
+        }
+
+        
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            AdminUsuariosActualizar actualizar = new AdminUsuariosActualizar();
+
+            Datos.Nombre = dgvUsuarios.SelectedCells[1].Value.ToString();
+            Datos.Apellido = dgvUsuarios.SelectedCells[2].Value.ToString();
+            Datos.Email = dgvUsuarios.SelectedCells[3].Value.ToString();
+            Datos.Contrasena = dgvUsuarios.SelectedCells[4].Value.ToString();
+            Datos.DNI = dgvUsuarios.SelectedCells[5].Value.ToString();
+            Datos.Telefono = dgvUsuarios.SelectedCells[6].Value.ToString();
+
+
+
+
+
+            actualizar.Show();
         }
     }
 
