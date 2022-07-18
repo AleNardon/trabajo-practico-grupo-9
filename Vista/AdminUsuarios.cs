@@ -34,12 +34,11 @@ namespace Vista
         {
             using (SQLiteConnection cn = new SQLiteConnection(conexion))
             {
-                try
-                {
+                
                     string dni = txtDNI.Text;
                     string id = txtID.Text;
 
-                    if (!(dni == ""))
+                    if (dni != "")
                     {
 
 
@@ -84,7 +83,7 @@ namespace Vista
                                 }
                                 else
                                 {
-                                    MessageBox.Show("No existe un usuario con ese DNI o ID" + AcceptButton);
+                                    MessageBox.Show("No existe un usuario con ese DNI o ID");
 
                                     reader.Close();
                                     cn.Close();
@@ -98,7 +97,7 @@ namespace Vista
                         }
 
                     }
-                    else if (!(id == ""))
+                    else if (id != "")
                     {
 
 
@@ -142,7 +141,7 @@ namespace Vista
                                 }
                                 else
                                 {
-                                    MessageBox.Show("No existe un usuario con ese DNI o ID" + AcceptButton);
+                                    MessageBox.Show("No existe un usuario con ese DNI o ID");
 
                                     reader.Close();
                                     cn.Close();
@@ -155,17 +154,15 @@ namespace Vista
                         }
 
                     }
-                }
-
-                catch (Exception)
-                {
-
-                    if (txtDNI.Text == "" && txtID.Text == "")
+                    else
                     {
-                        MessageBox.Show("Complete algun campo");
-                    }
+                        if (string.IsNullOrEmpty(txtDNI.Text) && string.IsNullOrEmpty(txtID.Text))
+                        {
+                            MessageBox.Show("Complete algun campo");
+                        }
 
-                }
+                    }
+           
 
 
 
