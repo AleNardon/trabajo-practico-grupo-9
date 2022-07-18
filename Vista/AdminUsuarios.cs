@@ -216,6 +216,8 @@ namespace Vista
 
             
             Datos.ID = txtID.Text;
+            Datos.DNI = txtDNI.Text;
+
 
 
             using (SQLiteConnection cn = new SQLiteConnection(conexion))
