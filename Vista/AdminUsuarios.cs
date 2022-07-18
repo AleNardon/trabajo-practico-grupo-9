@@ -246,7 +246,6 @@ namespace Vista
 
                             if (reader.Read())
                             {
-                                this.Close();
                                 actualizar.Show();
 
 
@@ -285,9 +284,9 @@ namespace Vista
 
                             if (reader.Read())
                             {
-                                    this.Close();
 
                                     actualizar.Show();
+                                    
 
                                 reader.Close();
 
