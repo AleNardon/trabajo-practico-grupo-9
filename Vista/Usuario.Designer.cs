@@ -99,6 +99,8 @@
             // 
             // txtTarifas
             // 
+            this.txtTarifas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTarifas.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTarifas.Location = new System.Drawing.Point(205, 62);
             this.txtTarifas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTarifas.Name = "txtTarifas";
@@ -128,6 +130,7 @@
             // 
             // txtFecha
             // 
+            this.txtFecha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFecha.Location = new System.Drawing.Point(205, 23);
             this.txtFecha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtFecha.Name = "txtFecha";
@@ -138,6 +141,7 @@
             // btnContinuar
             // 
             this.btnContinuar.BackColor = System.Drawing.Color.Navy;
+            this.btnContinuar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnContinuar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContinuar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContinuar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -152,6 +156,7 @@
             // btnSalir
             // 
             this.btnSalir.BackColor = System.Drawing.Color.Navy;
+            this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
