@@ -17,7 +17,6 @@ namespace Vista
 
         }
 
-        string pruebaGitIgnore;
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
