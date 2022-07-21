@@ -114,7 +114,7 @@ ipch/
 *.opensdf
 *.sdf
 *.cachefile
-
+*.VC.db
 *.VC.VC.opendb
 
 # Visual Studio profiler
@@ -238,8 +238,8 @@ _pkginfo.txt
 ClientBin/
 ~$*
 *~
-
-
+*.dbmdl
+*.dbproj.schemaview
 *.jfm
 *.pfx
 *.publishsettings
