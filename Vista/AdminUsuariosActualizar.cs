@@ -47,7 +47,6 @@ namespace Vista
                             txtNombre.Text = reader["NOMBRE"].ToString();
                             txtApellido.Text = reader["APELLIDO"].ToString();
                             txtEmail.Text = reader["EMAIL"].ToString();
-                            txtContrasena.Text = reader["CONTRASENA"].ToString();
                             txtDNI.Text = reader["DNI"].ToString();
                             txtTelefono.Text = reader["TELEFONO"].ToString();
                             chkAdmin.Checked = reader["ADMIN"].Equals(true);
@@ -85,7 +84,6 @@ namespace Vista
                                 txtNombre.Text = reader["NOMBRE"].ToString();
                                 txtApellido.Text = reader["APELLIDO"].ToString();
                                 txtEmail.Text = reader["EMAIL"].ToString();
-                                txtContrasena.Text = reader["CONTRASENA"].ToString();
                                 txtDNI.Text = reader["DNI"].ToString();
                                 txtTelefono.Text = reader["TELEFONO"].ToString();
                                 chkAdmin.Checked = reader["ADMIN"].Equals(true);
@@ -122,7 +120,7 @@ namespace Vista
 
 
                 cn.Open();
-                string query = "update USUARIOS set NOMBRE = '" + txtNombre.Text + "', APELLIDO = '" + txtApellido.Text + "', EMAIL = '" + txtEmail.Text + "', CONTRASENA = '" + txtContrasena.Text + "', DNI = " + txtDNI.Text + ", TELEFONO = " + txtTelefono.Text + ", ADMIN = '" + resultAdmin + "' WHERE ID = " + selectedID + ";";
+                string query = "update USUARIOS set NOMBRE = '" + txtNombre.Text + "', APELLIDO = '" + txtApellido.Text + "', EMAIL = '" + txtEmail.Text + ", DNI = " + txtDNI.Text + ", TELEFONO = " + txtTelefono.Text + ", ADMIN = '" + resultAdmin + "' WHERE ID = " + selectedID + ";";
 
                 
 
