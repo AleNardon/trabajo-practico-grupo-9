@@ -168,15 +168,6 @@ namespace Vista
         }
 
 
-        public static string DesEncriptarPassBD(string cadenaAdesencriptar)
-        {
-            string result = string.Empty;
-            byte[] decryted = Convert.FromBase64String(cadenaAdesencriptar);
-            //result = System.Text.Encoding.Unicode.GetString(decryted, 0, decryted.ToArray().Length);
-            result = System.Text.Encoding.Unicode.GetString(decryted);
-            return result;
-        }
-
         public static string EncriptarPassBD(string cadenaAencriptar)
         {
             string result = string.Empty;
