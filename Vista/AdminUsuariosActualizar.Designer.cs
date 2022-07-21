@@ -32,13 +32,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtContrasena = new System.Windows.Forms.TextBox();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -76,21 +74,11 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Email:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 188);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 20);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Contraseña:";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 241);
+            this.label5.Location = new System.Drawing.Point(12, 191);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 20);
             this.label5.TabIndex = 4;
@@ -100,7 +88,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 302);
+            this.label6.Location = new System.Drawing.Point(12, 251);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 20);
             this.label6.TabIndex = 5;
@@ -132,18 +120,10 @@
             this.txtEmail.Size = new System.Drawing.Size(170, 26);
             this.txtEmail.TabIndex = 2;
             // 
-            // txtContrasena
-            // 
-            this.txtContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContrasena.Location = new System.Drawing.Point(122, 182);
-            this.txtContrasena.Name = "txtContrasena";
-            this.txtContrasena.Size = new System.Drawing.Size(170, 26);
-            this.txtContrasena.TabIndex = 3;
-            // 
             // txtDNI
             // 
             this.txtDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDNI.Location = new System.Drawing.Point(122, 241);
+            this.txtDNI.Location = new System.Drawing.Point(122, 191);
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(170, 26);
             this.txtDNI.TabIndex = 4;
@@ -152,7 +132,7 @@
             // txtTelefono
             // 
             this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(122, 299);
+            this.txtTelefono.Location = new System.Drawing.Point(122, 248);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(170, 26);
             this.txtTelefono.TabIndex = 5;
@@ -164,7 +144,7 @@
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnModificar.Location = new System.Drawing.Point(172, 413);
+            this.btnModificar.Location = new System.Drawing.Point(172, 362);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(120, 44);
             this.btnModificar.TabIndex = 8;
@@ -176,7 +156,7 @@
             // 
             this.chkAdmin.AutoSize = true;
             this.chkAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkAdmin.Location = new System.Drawing.Point(122, 360);
+            this.chkAdmin.Location = new System.Drawing.Point(122, 309);
             this.chkAdmin.Name = "chkAdmin";
             this.chkAdmin.Size = new System.Drawing.Size(73, 24);
             this.chkAdmin.TabIndex = 6;
@@ -190,7 +170,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCancel.Location = new System.Drawing.Point(16, 413);
+            this.btnCancel.Location = new System.Drawing.Point(16, 362);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 44);
             this.btnCancel.TabIndex = 7;
@@ -202,19 +182,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(335, 479);
+            this.ClientSize = new System.Drawing.Size(335, 441);
             this.Controls.Add(this.chkAdmin);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.txtDNI);
-            this.Controls.Add(this.txtContrasena);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -233,13 +211,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtContrasena;
         private System.Windows.Forms.TextBox txtDNI;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Button btnModificar;
