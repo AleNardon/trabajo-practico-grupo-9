@@ -36,85 +36,153 @@ namespace Vista
            
 
         }
+        string password;
+        
+
 
         private void btnlogIn_Click(object sender, EventArgs e)
         {
 
-            using (SQLiteConnection cn = new SQLiteConnection(conexion))
+            if (!string.IsNullOrEmpty(txtEmail.Text) || !string.IsNullOrEmpty(txtPassword.Text))
             {
-
-                cn.Open();
-                string query = "select EMAIL, CONTRASENA from USUARIOS where EMAIL = @vEMAIL and CONTRASENA = @vCONTRASENA";
-
-                using (SQLiteCommand cmd = new SQLiteCommand(query, cn))
+                using (SQLiteConnection cn = new SQLiteConnection(conexion))
                 {
 
-                    cmd.Parameters.AddWithValue("@vEMAIL", txtEmail.Text);
-                    cmd.Parameters.AddWithValue("@vCONTRASENA", txtPassword.Text);
 
-                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    cn.Open();
+
+                    string query = "select CONTRASENA from USUARIOS where EMAIL = '" + txtEmail.Text + "'";
+
+
+
+                    using (SQLiteCommand cmd = new SQLiteCommand(query, cn))
                     {
 
-                      
+                        SQLiteDataReader reader = cmd.ExecuteReader();
 
                         if (reader.Read())
                         {
-                            string queryAdmin = "select EMAIL, ADMIN from USUARIOS where EMAIL = @vEMAIL and ADMIN = @vADMIN ";
+                            password = reader["CONTRASENA"].ToString();
 
-                            SQLiteCommand cmd2 = new SQLiteCommand(queryAdmin, cn);
-                            cmd2.Parameters.AddWithValue("@vEMAIL", txtEmail.Text);
-                            cmd2.Parameters.AddWithValue("@vADMIN", "Y");
+                            string query2 = "select EMAIL, CONTRASENA from USUARIOS where EMAIL = @vEMAIL and CONTRASENA = @vCONTRASENA";
 
-
-                            SQLiteDataReader newReader = cmd2.ExecuteReader();
-
-                            if (newReader.Read())
+                            using (SQLiteCommand cmd2 = new SQLiteCommand(query2, cn))
                             {
-                                reader.Close();
-                                newReader.Close();
-                                cn.Close();
+
+                                string passwordCompare = EncriptarPassBD(txtPassword.Text);
+
+                                cmd2.Parameters.AddWithValue("@vEMAIL", txtEmail.Text);
+                                cmd2.Parameters.AddWithValue("@vCONTRASENA", passwordCompare);
 
 
-                                Admin adminForm = new Admin();
-                                this.Hide();
 
-                                adminForm.ShowDialog();
+
+                                if (password == passwordCompare)
+                                {
+                                    using (SQLiteDataReader reader2 = cmd2.ExecuteReader())
+                                    {
+
+                                        if (reader2.Read())
+                                        {
+
+                                            string queryAdmin = "select EMAIL, ADMIN from USUARIOS where EMAIL = @vEMAIL and ADMIN = @vADMIN ";
+
+                                            SQLiteCommand cmd3 = new SQLiteCommand(queryAdmin, cn);
+                                            cmd3.Parameters.AddWithValue("@vEMAIL", txtEmail.Text);
+                                            cmd3.Parameters.AddWithValue("@vADMIN", "Y");
+
+
+                                            SQLiteDataReader reader3 = cmd3.ExecuteReader();
+
+                                            if (reader3.Read())
+                                            {
+                                                reader.Close();
+                                                reader3.Close();
+                                                cn.Close();
+
+
+                                                Admin adminForm = new Admin();
+                                                this.Hide();
+
+                                                adminForm.ShowDialog();
+
+
+                                            }
+                                            else
+                                            {
+                                                reader.Close();
+                                                reader2.Close();
+                                                reader3.Close();
+                                                cn.Close();
+
+                                                Usuario usuarioForm = new Usuario();
+                                                this.Hide();
+
+                                                usuarioForm.ShowDialog();
+
+
+                                            }
+
+                                        }
+                                        else
+                                        {
+                                            reader.Close();
+                                            reader2.Close();
+                                            cn.Close();
+
+                                        }
+
+                                    }
+
+                                }
+
+                                else
+                                {
+                                    reader.Close();
+                                    MessageBox.Show("Contraseña o mail incorrectos");
+                                }
+
+
+
 
 
                             }
-                            else
-                            {
-                                reader.Close();
-                                newReader.Close();
-                                cn.Close();
-
-                                Usuario usuarioForm = new Usuario();
-                                this.Hide();
-
-                                usuarioForm.ShowDialog();
-
-
-                            }
-
                         }
                         else
                         {
                             reader.Close();
-                            cn.Close();
-
-                            MessageBox.Show("No se encontro usuario");
-
+                            MessageBox.Show("Contraseña o mail incorrectos");
                         }
-
-
-
 
                     }
 
                 }
 
 
+            } else
+            {
+                MessageBox.Show("Complete algun campo");
             }
+
+           
+        }
+
+
+        public static string DesEncriptarPassBD(string cadenaAdesencriptar)
+        {
+            string result = string.Empty;
+            byte[] decryted = Convert.FromBase64String(cadenaAdesencriptar);
+            //result = System.Text.Encoding.Unicode.GetString(decryted, 0, decryted.ToArray().Length);
+            result = System.Text.Encoding.Unicode.GetString(decryted);
+            return result;
+        }
+
+        public static string EncriptarPassBD(string cadenaAencriptar)
+        {
+            string result = string.Empty;
+            byte[] encrypted = System.Text.Encoding.Unicode.GetBytes(cadenaAencriptar);
+            result = Convert.ToBase64String(encrypted);
+            return result;
         }
 
     }

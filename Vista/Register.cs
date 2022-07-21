@@ -81,6 +81,7 @@ namespace Vista
         /* TRY CATCH DE REGISTRO */
 
         SQLiteErrorCode errorCode;
+        string passwordEncrypted;
 
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -93,7 +94,9 @@ namespace Vista
 
             try
             {
-                string query = "Insert into USUARIOS (NOMBRE, APELLIDO, EMAIL, CONTRASENA, DNI, TELEFONO) values ('" + txtNombre.Text + "','" + txtApellido.Text + "','" + txtMail.Text + "','" + txtPassword.Text + "'," + txtDNI.Text + "," + txtTel.Text + ")";
+                passwordEncrypted = EncriptarPassBD(txtPassword.Text);
+
+                string query = "Insert into USUARIOS (NOMBRE, APELLIDO, EMAIL, CONTRASENA, DNI, TELEFONO) values ('" + txtNombre.Text + "','" + txtApellido.Text + "','" + txtMail.Text + "','" + passwordEncrypted + "'," + txtDNI.Text + "," + txtTel.Text + ")";
                 SQLiteDataAdapter da = new SQLiteDataAdapter(query, cn);
                 cn.Open();
 
@@ -178,6 +181,14 @@ namespace Vista
         private void btnCancelar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public static string EncriptarPassBD(string cadenaAencriptar)
+        {
+            string result = string.Empty;
+            byte[] encrypted = System.Text.Encoding.Unicode.GetBytes(cadenaAencriptar);
+            result = Convert.ToBase64String(encrypted);
+            return result;
         }
     }
 }
