@@ -61,6 +61,7 @@
             this.btnUsuario.TabIndex = 1;
             this.btnUsuario.Text = "Modificar Datos";
             this.btnUsuario.UseVisualStyleBackColor = false;
+            this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
             // 
             // btnSalir
             // 

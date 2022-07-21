@@ -176,7 +176,7 @@
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRegister.Location = new System.Drawing.Point(14, 769);
+            this.btnRegister.Location = new System.Drawing.Point(13, 769);
             this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(224, 51);
@@ -259,7 +259,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(528, 858);
+            this.ClientSize = new System.Drawing.Size(671, 856);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPassword);

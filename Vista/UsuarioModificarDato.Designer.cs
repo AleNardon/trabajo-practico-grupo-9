@@ -58,6 +58,8 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(182, 26);
             this.txtNombre.TabIndex = 1;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyLetter);
             // 
             // label2
             // 
@@ -74,6 +76,7 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(182, 26);
             this.txtApellido.TabIndex = 3;
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyLetter);
             // 
             // label3
             // 
@@ -116,6 +119,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(191, 26);
             this.txtTelefono.TabIndex = 8;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumber);
             // 
             // label6
             // 
@@ -132,6 +136,8 @@
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(191, 26);
             this.txtDNI.TabIndex = 10;
+            this.txtDNI.TextChanged += new System.EventHandler(this.txtDNI_TextChanged);
+            this.txtDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumber);
             // 
             // btnConfirmar
             // 
@@ -143,6 +149,7 @@
             this.btnConfirmar.TabIndex = 11;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = false;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // btnCancelar
             // 
@@ -154,6 +161,7 @@
             this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // UsuarioModificarDato
             // 
@@ -175,6 +183,7 @@
             this.Controls.Add(this.label1);
             this.Name = "UsuarioModificarDato";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.UsuarioModificarDato_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
