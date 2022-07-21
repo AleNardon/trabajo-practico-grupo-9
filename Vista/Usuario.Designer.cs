@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usuario));
             this.btnTicket = new System.Windows.Forms.Button();
             this.btnUsuario = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -40,9 +39,10 @@
             this.btnTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTicket.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnTicket.Location = new System.Drawing.Point(41, 49);
+            this.btnTicket.Location = new System.Drawing.Point(62, 79);
+            this.btnTicket.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnTicket.Name = "btnTicket";
-            this.btnTicket.Size = new System.Drawing.Size(192, 63);
+            this.btnTicket.Size = new System.Drawing.Size(288, 97);
             this.btnTicket.TabIndex = 0;
             this.btnTicket.Text = "Nuevo Ticket";
             this.btnTicket.UseVisualStyleBackColor = false;
@@ -54,9 +54,10 @@
             this.btnUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuario.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnUsuario.Location = new System.Drawing.Point(41, 136);
+            this.btnUsuario.Location = new System.Drawing.Point(62, 209);
+            this.btnUsuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnUsuario.Name = "btnUsuario";
-            this.btnUsuario.Size = new System.Drawing.Size(192, 63);
+            this.btnUsuario.Size = new System.Drawing.Size(288, 97);
             this.btnUsuario.TabIndex = 1;
             this.btnUsuario.Text = "Modificar Datos";
             this.btnUsuario.UseVisualStyleBackColor = false;
@@ -68,23 +69,24 @@
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSalir.Location = new System.Drawing.Point(41, 220);
+            this.btnSalir.Location = new System.Drawing.Point(62, 338);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(192, 63);
+            this.btnSalir.Size = new System.Drawing.Size(288, 97);
             this.btnSalir.TabIndex = 2;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             // 
             // Usuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnSalir;
-            this.ClientSize = new System.Drawing.Size(275, 346);
+            this.ClientSize = new System.Drawing.Size(412, 532);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnUsuario);
             this.Controls.Add(this.btnTicket);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Usuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuario";

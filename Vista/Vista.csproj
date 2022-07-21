@@ -97,6 +97,12 @@
       <DependentUpon>AdminUsuariosActualizar.cs</DependentUpon>
     </Compile>
     <Compile Include="Datos.cs" />
+    <Compile Include="UsuarioModificarDato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsuarioModificarDato.Designer.cs">
+      <DependentUpon>UsuarioModificarDato.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuario.resx">
+      <DependentUpon>Usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsuarioModificarDato.resx">
+      <DependentUpon>UsuarioModificarDato.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsuarioTicket.resx">
       <DependentUpon>UsuarioTicket.cs</DependentUpon>
