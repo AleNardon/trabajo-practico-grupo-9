@@ -107,7 +107,7 @@ namespace Vista
 
                 MessageBox.Show("Usuario creado con exito. Bienvenido! " + AcceptButton);
 
-                UsuarioTicket usuarioForm = new UsuarioTicket();
+                Usuario usuarioForm = new Usuario();
                 this.Hide();
 
                 usuarioForm.ShowDialog();

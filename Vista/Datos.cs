@@ -13,6 +13,8 @@ namespace Vista
         static public string ID;
         static public string DNI;
 
+        static public string activeID;
+
 
 
     }

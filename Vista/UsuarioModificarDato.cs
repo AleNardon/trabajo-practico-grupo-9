@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace Vista
 {
@@ -29,12 +30,51 @@ namespace Vista
 
         private void UsuarioModificarDato_Load(object sender, EventArgs e)
         {
-            txtDNI.MaxLength = 8; 
-         
+            txtDNI.MaxLength = 8;
+
+            using (SQLiteConnection cn = new SQLiteConnection(conexion))
+            {
+
+
+                    cn.Open();
+                    string query = "select * from USUARIOS where ID = " + Datos.activeID;
+
+                    using (SQLiteCommand cmd = new SQLiteCommand(query, cn))
+                    {
+                        using (SQLiteDataReader reader = cmd.ExecuteReader())
+                        {
+
+
+                            if (reader.Read())
+                            {
+                                txtNombre.Text = reader["NOMBRE"].ToString();
+                                txtApellido.Text = reader["APELLIDO"].ToString();
+                                txtMail.Text = reader["EMAIL"].ToString();
+                                txtDNI.Text = reader["DNI"].ToString();
+                                txtTelefono.Text = reader["TELEFONO"].ToString();
+
+
+                                reader.Close();
+                                cn.Close();
+                            }
+                            else
+                            {
+                                cn.Close();
+                            }
+
+                        }
+                    }
+
+                
+
+
+
+
+            }
         }
 
 
-        public void onlyNumber(object sender, KeyPressEventArgs e)
+            public void onlyNumber(object sender, KeyPressEventArgs e)
         {
             if (!char.IsNumber(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
             {
@@ -55,33 +95,55 @@ namespace Vista
      
         }
 
+        public string conexion = "Data Source= DataBasePeaje.db;Version=3;New=False;Compress=True;";
+
+
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrEmpty(txtNombre.Text))
+            using (SQLiteConnection cn = new SQLiteConnection(conexion))
             {
-                MessageBox.Show("Complete el nombre");
+            
+
+                try
+                {
+
+
+                    cn.Open();
+                    string query = "update USUARIOS set NOMBRE = '" + txtNombre.Text + "', APELLIDO = '" + txtApellido.Text + "', EMAIL = '" + txtMail.Text + ", DNI = " + txtDNI.Text + ", TELEFONO = " + txtTelefono.Text + ", CONTRASENA =" +txtContasena.Text + " WHERE ID = " + Datos.activeID + ";";
+
+
+
+                    using (SQLiteCommand cmd = new SQLiteCommand(query, cn))
+                    {
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Usuario acutalizado correctamente" + AcceptButton);
+                        cn.Close();
+
+
+                    }
+
+                }
+                catch (Exception)
+                {
+                    if (emailExist(errorCode))
+                    {
+                        MessageBox.Show("Ya existe una cuenta con este Email o DNI" + AcceptButton);
+
+                    }
+                }
+
             }
-            else if (string.IsNullOrEmpty(txtApellido.Text))
-            {
-                MessageBox.Show("Complete el apellido");
-            }
-            else if (string.IsNullOrEmpty(txtMail.Text))
-            {
-                MessageBox.Show("Complete el mail");
-            }
-            else if (string.IsNullOrEmpty(txtTelefono.Text))
-            {
-                MessageBox.Show("Complete el Teléfoino");
-            }
-            else if (string.IsNullOrEmpty(txtDNI.Text))
-            {
-                MessageBox.Show("Complete el DNI");
-            } 
-            else
-            {
-                MessageBox.Show("Usuario modificado"); 
-            }
+        }
+
+        SQLiteErrorCode errorCode;
+
+        public bool emailExist(SQLiteErrorCode errorCode)
+        {
+            errorCode = SQLiteErrorCode.Abort;
+            return true;
+
+
         }
     }
 }
