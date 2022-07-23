@@ -32,6 +32,7 @@ namespace Vista
         {
             txtDNI.MaxLength = 8;
 
+
             using (SQLiteConnection cn = new SQLiteConnection(conexion))
             {
 
@@ -54,7 +55,17 @@ namespace Vista
                                 txtTelefono.Text = reader["TELEFONO"].ToString();
 
 
-                                reader.Close();
+                                txtContasena.Text = reader["CONTRASENA"].ToString();
+
+                                string passDecrypted = DesEncriptarPassBD(txtContasena.Text);
+
+                            txtContasena.Text = passDecrypted;
+
+
+
+
+
+                            reader.Close();
                                 cn.Close();
                             }
                             else
@@ -144,6 +155,15 @@ namespace Vista
             return true;
 
 
+        }
+
+        public static string DesEncriptarPassBD(string cadenaAdesencriptar)
+        {
+            string result = string.Empty;
+            byte[] decryted = Convert.FromBase64String(cadenaAdesencriptar);
+            //result = System.Text.Encoding.Unicode.GetString(decryted, 0, decryted.ToArray().Length);
+            result = System.Text.Encoding.Unicode.GetString(decryted);
+            return result;
         }
     }
 }

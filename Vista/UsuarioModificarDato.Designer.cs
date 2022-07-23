@@ -58,7 +58,7 @@
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(67, 38);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(158, 20);
             this.txtNombre.TabIndex = 1;
@@ -78,7 +78,7 @@
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(67, 68);
-            this.txtApellido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(2);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(158, 20);
             this.txtApellido.TabIndex = 3;
@@ -108,7 +108,7 @@
             // txtMail
             // 
             this.txtMail.Location = new System.Drawing.Point(67, 97);
-            this.txtMail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMail.Margin = new System.Windows.Forms.Padding(2);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(158, 20);
             this.txtMail.TabIndex = 6;
@@ -126,7 +126,7 @@
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(67, 133);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(2);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(158, 20);
             this.txtTelefono.TabIndex = 8;
@@ -145,7 +145,7 @@
             // txtDNI
             // 
             this.txtDNI.Location = new System.Drawing.Point(67, 163);
-            this.txtDNI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDNI.Margin = new System.Windows.Forms.Padding(2);
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(158, 20);
             this.txtDNI.TabIndex = 10;
@@ -158,7 +158,7 @@
             this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirmar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnConfirmar.Location = new System.Drawing.Point(67, 236);
-            this.btnConfirmar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnConfirmar.Margin = new System.Windows.Forms.Padding(2);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(156, 37);
             this.btnConfirmar.TabIndex = 11;
@@ -172,7 +172,7 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCancelar.Location = new System.Drawing.Point(69, 286);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(156, 37);
             this.btnCancelar.TabIndex = 12;
@@ -182,7 +182,7 @@
             // 
             // txtContasena
             // 
-            this.txtContasena.Location = new System.Drawing.Point(69, 199);
+            this.txtContasena.Location = new System.Drawing.Point(78, 199);
             this.txtContasena.Margin = new System.Windows.Forms.Padding(2);
             this.txtContasena.Name = "txtContasena";
             this.txtContasena.Size = new System.Drawing.Size(158, 20);
@@ -218,7 +218,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UsuarioModificarDato";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.UsuarioModificarDato_Load);
