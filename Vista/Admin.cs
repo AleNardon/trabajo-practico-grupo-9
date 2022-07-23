@@ -42,5 +42,12 @@ namespace Vista
             AdmTarifas.ShowDialog();
             this.Show();
         }
+
+        private void btnTicket_Click(object sender, EventArgs e)
+        {
+            UsuarioTicket ticket = new UsuarioTicket();
+            ticket.Show();
+            this.Close();
+        }
     }
 }

@@ -21,16 +21,20 @@ namespace Vista
         {
             UsuarioTicket ticket = new UsuarioTicket();
 
-            ticket.Show();
             this.Hide();
+            ticket.ShowDialog();
+
+            this.Show();
         }
 
         private void btnUsuario_Click(object sender, EventArgs e)
         {
             UsuarioModificarDato modificar = new UsuarioModificarDato();
 
-            modificar.Show();
             this.Hide(); 
+            modificar.ShowDialog();
+
+            this.Show();
         }
     }
 }
