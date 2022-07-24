@@ -46,8 +46,25 @@ namespace Vista
         private void btnTicket_Click(object sender, EventArgs e)
         {
             UsuarioTicket ticket = new UsuarioTicket();
-            ticket.Show();
+            this.Hide();
+            ticket.ShowDialog();
+
+            this.Show();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
             this.Close();
+        }
+
+        private void btnModificarDatos_Click(object sender, EventArgs e)
+        {
+            UsuarioModificarDato from = new UsuarioModificarDato();
+
+            this.Hide();
+            from.ShowDialog();
+
+            this.Show();
         }
     }
 }
