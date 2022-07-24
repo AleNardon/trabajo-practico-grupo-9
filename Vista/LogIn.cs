@@ -240,5 +240,32 @@ namespace Vista
             }
         }
 
+        private void txtEmail_Enter(object sender, EventArgs e)
+        {
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(e.KeyChar != (char)Keys.Enter))
+            {
+                btnlogIn_Click(sender, e);
+
+            }
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(e.KeyChar != (char)Keys.Enter))
+            {
+                btnlogIn_Click(sender, e);
+
+            }
+
+        }
     }
 }
