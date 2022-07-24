@@ -64,6 +64,7 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Navy;
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -79,6 +80,7 @@
             // btnAceptar
             // 
             this.btnAceptar.BackColor = System.Drawing.Color.Navy;
+            this.btnAceptar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAceptar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnAceptar.FlatAppearance.BorderSize = 0;
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -132,6 +134,7 @@
             // btnActualizar
             // 
             this.btnActualizar.BackColor = System.Drawing.Color.Navy;
+            this.btnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -146,6 +149,7 @@
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.Navy;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -160,6 +164,7 @@
             // btnRefresca
             // 
             this.btnRefresca.BackColor = System.Drawing.Color.Navy;
+            this.btnRefresca.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRefresca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresca.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresca.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
