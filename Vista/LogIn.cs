@@ -58,7 +58,11 @@ namespace Vista
                     using (SQLiteCommand cmd = new SQLiteCommand(query, cn))
                     {
 
-                        SQLiteDataReader reader = cmd.ExecuteReader();
+                        using (SQLiteDataReader reader = cmd.ExecuteReader())
+                        {
+
+
+                            
 
                         if (reader.Read())
                         {
@@ -91,47 +95,54 @@ namespace Vista
                                             cmd3.Parameters.AddWithValue("@vEMAIL", txtEmail.Text);
                                             cmd3.Parameters.AddWithValue("@vADMIN", "Y");
 
+                                                using (SQLiteDataReader reader3 = cmd3.ExecuteReader())
+                                                {
+                                                    if (reader3.Read())
+                                                    {
+                                                        reader.Close();
+                                                        reader2.Close();
+                                                        reader3.Close();
+                                                        cn.Close();
 
-                                            SQLiteDataReader reader3 = cmd3.ExecuteReader();
+                                                        string activeID = perfilActivo(txtEmail.Text);
 
-                                            if (reader3.Read())
-                                            {
-                                                reader.Close();
-                                                reader3.Close();
-                                                cn.Close();
-
-                                                string activeID = perfilActivo(txtEmail.Text);
-
-                                                Datos.activeID = activeID;
-
-
-                                                Admin adminForm = new Admin();
-                                                this.Hide();
-
-                                                adminForm.ShowDialog();
+                                                        Datos.activeID = activeID;
 
 
-                                            }
-                                            else
-                                            {
-                                                reader.Close();
-                                                reader2.Close();
-                                                reader3.Close();
-                                                cn.Close();
+                                                        Admin adminForm = new Admin();
+                                                        this.Hide();
 
-                                                string activeID = perfilActivo(txtEmail.Text);
-
-                                                Datos.activeID = activeID;
-
-                                                Usuario usuarioForm = new Usuario();
-                                                this.Hide();
+                                                        adminForm.ShowDialog();
 
 
+                                                    }
+                                                    else
+                                                    {
+                                                        reader.Close();
+                                                        reader2.Close();
+                                                        reader3.Close();
+                                                        cn.Close();
 
-                                                usuarioForm.ShowDialog();
+                                                        string activeID = perfilActivo(txtEmail.Text);
+
+                                                        Datos.activeID = activeID;
+
+                                                        Usuario usuarioForm = new Usuario();
+                                                        this.Hide();
 
 
-                                            }
+
+                                                        usuarioForm.ShowDialog();
+
+
+                                                    }
+
+                                                }
+
+
+                                                    
+
+                                           
 
                                         }
                                         else
@@ -149,6 +160,8 @@ namespace Vista
                                 else
                                 {
                                     reader.Close();
+                                    cn.Close();
+
                                     MessageBox.Show("Contraseña o mail incorrectos");
                                 }
 
@@ -161,10 +174,15 @@ namespace Vista
                         else
                         {
                             reader.Close();
+                            cn.Close();
+
                             MessageBox.Show("Contraseña o mail incorrectos");
                         }
 
                     }
+
+                    }
+
 
                 }
 
@@ -195,19 +213,28 @@ namespace Vista
 
                 using (SQLiteCommand cmd = new SQLiteCommand(query, cn))
                 {
-                    SQLiteDataReader reader = cmd.ExecuteReader();
 
-                    if (reader.Read())
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
                     {
-                        string ID = reader["ID"].ToString();
-                        reader.Close();
-                        return ID;
-                    } else
-                    {
-                        reader.Close();
 
-                        return string.Empty;
+                        if (reader.Read())
+                        {
+                            string ID = reader["ID"].ToString();
+                            reader.Close();
+                            cn.Close();
+                            return ID;
+                        }
+                        else
+                        {
+                            reader.Close();
+                            cn.Close();
+
+
+                            return string.Empty;
+                        }
                     }
+                        
+
                 }
 
             }

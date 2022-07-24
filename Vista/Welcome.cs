@@ -42,6 +42,10 @@ namespace Vista
             this.Close();
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AdminUsuarios user = new AdminUsuarios();
+            user.Show();
+        }
     }
 }

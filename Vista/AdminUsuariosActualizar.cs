@@ -59,6 +59,8 @@ namespace Vista
                             cn.Close();
                         } else
                             {
+                                reader.Close();
+
                                 cn.Close();
                             }
 
@@ -95,6 +97,8 @@ namespace Vista
                                 reader.Close();
                                 cn.Close();
                             } else {
+                                reader.Close();
+
                                 cn.Close();
                                     }
 
@@ -120,7 +124,7 @@ namespace Vista
 
 
                 cn.Open();
-                string query = "update USUARIOS set NOMBRE = '" + txtNombre.Text + "', APELLIDO = '" + txtApellido.Text + "', EMAIL = '" + txtEmail.Text + ", DNI = " + txtDNI.Text + ", TELEFONO = " + txtTelefono.Text + ", ADMIN = '" + resultAdmin + "' WHERE ID = " + selectedID + ";";
+                string query = "update USUARIOS set NOMBRE = '" + txtNombre.Text + "', APELLIDO = '" + txtApellido.Text + "', EMAIL = '" + txtEmail.Text + "' , DNI = " + txtDNI.Text + ", TELEFONO = " + txtTelefono.Text + ", ADMIN = '" + resultAdmin + "' WHERE ID = " + selectedID + ";";
 
                 
 
@@ -168,8 +172,6 @@ namespace Vista
         {
             errorCode = SQLiteErrorCode.Abort;
             return true;
-
-
         }
 
         public void onlyLetter(object sender, KeyPressEventArgs e)
