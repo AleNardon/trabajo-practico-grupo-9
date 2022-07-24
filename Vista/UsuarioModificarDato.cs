@@ -70,7 +70,9 @@ namespace Vista
                             }
                             else
                             {
-                                cn.Close();
+                            reader.Close();
+
+                            cn.Close();
                             }
 
                         }
