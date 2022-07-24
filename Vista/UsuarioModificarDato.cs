@@ -30,7 +30,6 @@ namespace Vista
 
         private void UsuarioModificarDato_Load(object sender, EventArgs e)
         {
-            txtDNI.MaxLength = 8;
 
 
             using (SQLiteConnection cn = new SQLiteConnection(conexion))
@@ -55,11 +54,11 @@ namespace Vista
                                 txtTelefono.Text = reader["TELEFONO"].ToString();
 
 
-                                txtContasena.Text = reader["CONTRASENA"].ToString();
+                                txtContrasena.Text = reader["CONTRASENA"].ToString();
 
-                                string passDecrypted = DesEncriptarPassBD(txtContasena.Text);
+                                string passDecrypted = DesEncriptarPassBD(txtContrasena.Text);
 
-                            txtContasena.Text = passDecrypted;
+                            txtContrasena.Text = passDecrypted;
 
 
 
@@ -123,7 +122,7 @@ namespace Vista
 
 
                     cn.Open();
-                    string query = "update USUARIOS set NOMBRE = '" + txtNombre.Text + "', APELLIDO = '" + txtApellido.Text + "', EMAIL = '" + txtMail.Text + ", DNI = " + txtDNI.Text + ", TELEFONO = " + txtTelefono.Text + ", CONTRASENA =" +txtContasena.Text + " WHERE ID = " + Datos.activeID + ";";
+                    string query = "update USUARIOS set NOMBRE = '" + txtNombre.Text + "', APELLIDO = '" + txtApellido.Text + "', EMAIL = '" + txtMail.Text + "', DNI = " + txtDNI.Text + ", TELEFONO = " + txtTelefono.Text + ", CONTRASENA = '" +txtContrasena.Text + "' WHERE ID = " + Datos.activeID + ";";
 
 
 

@@ -44,7 +44,7 @@ namespace Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AdminUsuarios user = new AdminUsuarios();
+            UsuarioModificarDato user = new UsuarioModificarDato();
             user.Show();
         }
     }
