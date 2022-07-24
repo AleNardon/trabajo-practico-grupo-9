@@ -41,7 +41,7 @@
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.txtContasena = new System.Windows.Forms.TextBox();
+            this.txtContrasena = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -180,13 +180,13 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // txtContasena
+            // txtContrasena
             // 
-            this.txtContasena.Location = new System.Drawing.Point(78, 199);
-            this.txtContasena.Margin = new System.Windows.Forms.Padding(2);
-            this.txtContasena.Name = "txtContasena";
-            this.txtContasena.Size = new System.Drawing.Size(158, 20);
-            this.txtContasena.TabIndex = 13;
+            this.txtContrasena.Location = new System.Drawing.Point(78, 199);
+            this.txtContrasena.Margin = new System.Windows.Forms.Padding(2);
+            this.txtContrasena.Name = "txtContrasena";
+            this.txtContrasena.Size = new System.Drawing.Size(158, 20);
+            this.txtContrasena.TabIndex = 13;
             // 
             // label7
             // 
@@ -204,7 +204,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(298, 344);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtContasena);
+            this.Controls.Add(this.txtContrasena);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.txtDNI);
@@ -242,7 +242,7 @@
         private System.Windows.Forms.TextBox txtDNI;
         private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.TextBox txtContasena;
+        private System.Windows.Forms.TextBox txtContrasena;
         private System.Windows.Forms.Label label7;
     }
 }
