@@ -77,6 +77,8 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(222, 24);
             this.txtEmail.TabIndex = 3;
+            this.txtEmail.Enter += new System.EventHandler(this.txtEmail_Enter);
+            this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
             // 
             // txtPassword
             // 
@@ -86,6 +88,8 @@
             this.txtPassword.PasswordChar = '•';
             this.txtPassword.Size = new System.Drawing.Size(222, 24);
             this.txtPassword.TabIndex = 4;
+            this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
             // 
             // label4
             // 

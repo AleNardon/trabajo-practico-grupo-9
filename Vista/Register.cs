@@ -230,5 +230,43 @@ namespace Vista
 
             }
         }
+
+        private void txtMail_TextChanged(object sender, EventArgs e)
+        {
+            do
+            {
+                if (txtMail.Text.Contains("@"))
+                {
+                    lblArroba.ForeColor = System.Drawing.Color.Green;
+                    lblArroba.Text = "Contiene @";
+
+
+
+                } else
+                {
+                    lblArroba.ForeColor = System.Drawing.Color.Red;
+                    lblArroba.Text = "No contiene @";
+
+                }
+
+                if (txtMail.Text.Contains("."))
+                {
+                    lblPunto.ForeColor = System.Drawing.Color.Green;
+                    lblPunto.Text = "Contiene punto";
+
+
+                } else
+                {
+                    lblPunto.ForeColor = System.Drawing.Color.Red;
+                    lblPunto.Text = "No contiene @";
+
+                }
+
+                return;
+
+            } while (validarEmail() == false);
+
+
+        }
     }
 }
