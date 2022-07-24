@@ -113,6 +113,8 @@ namespace Vista
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
 
+            string passwordEncrypted = EncriptarPassBD(txtContrasena.Text);
+
             using (SQLiteConnection cn = new SQLiteConnection(conexion))
             {
             
@@ -122,7 +124,7 @@ namespace Vista
 
 
                     cn.Open();
-                    string query = "update USUARIOS set NOMBRE = '" + txtNombre.Text + "', APELLIDO = '" + txtApellido.Text + "', EMAIL = '" + txtMail.Text + "', DNI = " + txtDNI.Text + ", TELEFONO = " + txtTelefono.Text + ", CONTRASENA = '" +txtContrasena.Text + "' WHERE ID = " + Datos.activeID + ";";
+                    string query = "update USUARIOS set NOMBRE = '" + txtNombre.Text + "', APELLIDO = '" + txtApellido.Text + "', EMAIL = '" + txtMail.Text + "', DNI = " + txtDNI.Text + ", TELEFONO = " + txtTelefono.Text + ", CONTRASENA = '" + passwordEncrypted + "' WHERE ID = " + Datos.activeID + ";";
 
 
 
@@ -164,6 +166,14 @@ namespace Vista
             byte[] decryted = Convert.FromBase64String(cadenaAdesencriptar);
             //result = System.Text.Encoding.Unicode.GetString(decryted, 0, decryted.ToArray().Length);
             result = System.Text.Encoding.Unicode.GetString(decryted);
+            return result;
+        }
+
+        public static string EncriptarPassBD(string cadenaAencriptar)
+        {
+            string result = string.Empty;
+            byte[] encrypted = System.Text.Encoding.Unicode.GetBytes(cadenaAencriptar);
+            result = Convert.ToBase64String(encrypted);
             return result;
         }
     }

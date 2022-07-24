@@ -107,7 +107,11 @@ namespace Vista
 
                 MessageBox.Show("Usuario creado con exito. Bienvenido! " + AcceptButton);
 
-                Usuario usuarioForm = new Usuario();
+                    string activeID = perfilActivo(txtMail.Text);
+
+                    Datos.activeID = activeID;
+
+                    Usuario usuarioForm = new Usuario();
                 this.Hide();
 
                 usuarioForm.ShowDialog();
@@ -189,6 +193,42 @@ namespace Vista
             byte[] encrypted = System.Text.Encoding.Unicode.GetBytes(cadenaAencriptar);
             result = Convert.ToBase64String(encrypted);
             return result;
+        }
+
+        public string perfilActivo(string mailActivo)
+        {
+            using (SQLiteConnection cn = new SQLiteConnection(conexion))
+            {
+                cn.Open();
+                string query = "select ID from USUARIOS where EMAIL = '" + mailActivo + "'";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, cn))
+                {
+
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        if (reader.Read())
+                        {
+                            string ID = reader["ID"].ToString();
+                            reader.Close();
+                            cn.Close();
+                            return ID;
+                        }
+                        else
+                        {
+                            reader.Close();
+                            cn.Close();
+
+
+                            return string.Empty;
+                        }
+                    }
+
+
+                }
+
+            }
         }
     }
 }
