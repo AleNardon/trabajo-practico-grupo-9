@@ -78,7 +78,7 @@ namespace Vista
 
         }
 
-        /* TRY CATCH DE REGISTRO */
+        
 
         SQLiteErrorCode errorCode;
         string passwordEncrypted;
@@ -94,7 +94,7 @@ namespace Vista
 
             try
             {
-                passwordEncrypted = EncriptarPassBD(txtPassword.Text);
+                passwordEncrypted = EncriptarPassBD(txtPassword.Text); // Encripta password
 
                 string query = "Insert into USUARIOS (NOMBRE, APELLIDO, EMAIL, CONTRASENA, DNI, TELEFONO) values ('" + txtNombre.Text + "','" + txtApellido.Text + "','" + txtMail.Text + "','" + passwordEncrypted + "'," + txtDNI.Text + "," + txtTel.Text + ")";
                 SQLiteDataAdapter da = new SQLiteDataAdapter(query, cn);
@@ -107,9 +107,9 @@ namespace Vista
 
                 MessageBox.Show("Usuario creado con exito. Bienvenido! " + AcceptButton);
 
-                    string activeID = perfilActivo(txtMail.Text);
+                    string activeID = perfilActivo(txtMail.Text); // Se guarda el ID en Datos
 
-                    Datos.activeID = activeID;
+                    Datos.activeID = activeID; // Se guarda el ID en Datos
 
                     Usuario usuarioForm = new Usuario();
                 this.Hide();
@@ -135,7 +135,7 @@ namespace Vista
                 }
                
                
-                else if (emailExist(errorCode))
+                else if (emailExist(errorCode)) // Tira error de database.abort al tener duplicados
                 {
                     MessageBox.Show("Ya existe una cuenta con este Email o DNI" + AcceptButton);
 
@@ -156,7 +156,7 @@ namespace Vista
 
         public bool emailExist(SQLiteErrorCode errorCode)
         {
-            errorCode = SQLiteErrorCode.Abort;
+            errorCode = SQLiteErrorCode.Abort; // Al hacer .abort, devuelve true
             return true;
 
  
@@ -164,7 +164,7 @@ namespace Vista
         public bool validarEmail()
         {
             string emailFormato;
-            emailFormato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            emailFormato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*"; // Formato de mail
             if (Regex.IsMatch(txtMail.Text, emailFormato))
             {
                 if (Regex.Replace(txtMail.Text, emailFormato, String.Empty).Length == 0)
@@ -182,12 +182,9 @@ namespace Vista
             }
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
+        
 
-        }
-
-        public static string EncriptarPassBD(string cadenaAencriptar)
+        public static string EncriptarPassBD(string cadenaAencriptar) // Encripta password
         {
             string result = string.Empty;
             byte[] encrypted = System.Text.Encoding.Unicode.GetBytes(cadenaAencriptar);
@@ -195,7 +192,9 @@ namespace Vista
             return result;
         }
 
-        public string perfilActivo(string mailActivo)
+
+
+        public string perfilActivo(string mailActivo) // Selecciona el perfil logeado
         {
             using (SQLiteConnection cn = new SQLiteConnection(conexion))
             {
@@ -213,7 +212,7 @@ namespace Vista
                             string ID = reader["ID"].ToString();
                             reader.Close();
                             cn.Close();
-                            return ID;
+                            return ID; 
                         }
                         else
                         {
@@ -258,7 +257,7 @@ namespace Vista
                 } else
                 {
                     lblPunto.ForeColor = System.Drawing.Color.Red;
-                    lblPunto.Text = "No contiene @";
+                    lblPunto.Text = "No contiene punto";
 
                 }
 

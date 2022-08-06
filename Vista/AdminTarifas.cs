@@ -106,6 +106,8 @@ namespace Vista
             }
 
         }
+
+
         public void onlyNumber(object sender, KeyPressEventArgs e)
         {
 

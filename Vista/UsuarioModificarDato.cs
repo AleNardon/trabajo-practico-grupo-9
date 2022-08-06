@@ -18,14 +18,12 @@ namespace Vista
             InitializeComponent();
         }
 
+        public string conexion = "Data Source= DataBasePeaje.db;Version=3;New=False;Compress=True;";
+
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close(); 
-        }
-
-        private void txtDNI_TextChanged(object sender, EventArgs e)
-        {
-          
         }
 
         private void UsuarioModificarDato_Load(object sender, EventArgs e)
@@ -54,11 +52,11 @@ namespace Vista
                                 txtTelefono.Text = reader["TELEFONO"].ToString();
 
 
-                                txtContrasena.Text = reader["CONTRASENA"].ToString();
+                                txtContrasena.Text = reader["CONTRASENA"].ToString(); // Contrasena encriptada
 
-                                string passDecrypted = DesEncriptarPassBD(txtContrasena.Text);
+                                string passDecrypted = DesEncriptarPassBD(txtContrasena.Text); //  Desencripta
 
-                            txtContrasena.Text = passDecrypted;
+                            txtContrasena.Text = passDecrypted; // Muestra COntrasena desencriptada
 
 
 
@@ -102,18 +100,12 @@ namespace Vista
 
         }
 
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-     
-        }
-
-        public string conexion = "Data Source= DataBasePeaje.db;Version=3;New=False;Compress=True;";
 
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
 
-            string passwordEncrypted = EncriptarPassBD(txtContrasena.Text);
+            string passwordEncrypted = EncriptarPassBD(txtContrasena.Text); // Encripta nueva contrasena
 
             using (SQLiteConnection cn = new SQLiteConnection(conexion))
             {
@@ -164,7 +156,6 @@ namespace Vista
         {
             string result = string.Empty;
             byte[] decryted = Convert.FromBase64String(cadenaAdesencriptar);
-            //result = System.Text.Encoding.Unicode.GetString(decryted, 0, decryted.ToArray().Length);
             result = System.Text.Encoding.Unicode.GetString(decryted);
             return result;
         }

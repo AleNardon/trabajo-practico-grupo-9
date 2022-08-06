@@ -19,10 +19,7 @@ namespace Vista
         }
 
         public string conexion = "Data Source= DataBasePeaje.db;Version=3;New=False;Compress=True;";
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        
 
         private void AdminUsuarios_Load(object sender, EventArgs e)
         {
@@ -47,7 +44,7 @@ namespace Vista
 
                     cn.Open();
 
-                    string query = "select DNI from USUARIOS where DNI = " + txtDNI.Text;
+                    string query = "select DNI from USUARIOS where DNI = " + txtDNI.Text; // Selecciona DNI desde tabla con DNI escrito
 
 
 
@@ -105,7 +102,7 @@ namespace Vista
 
                     cn.Open();
 
-                    string query = "select ID from USUARIOS where ID = " + txtID.Text;
+                    string query = "select ID from USUARIOS where ID = " + txtID.Text; // Selecciona ID desde base de datos con ID escrito
 
 
 
@@ -188,19 +185,18 @@ namespace Vista
             DataTable dt = new DataTable();
 
 
-            da.Fill(dt);
-
-            dgvUsuarios.DataSource = dt;
+            da.Fill(dt); //Llena tabla virtual
+            dgvUsuarios.DataSource = dt; // Muiestra tabla en grafico
 
 
             cn.Close();
 
         }
 
-        private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e) //Escribe en DNI y ID los seleccionados
         {
-            txtID.Text = dgvUsuarios.SelectedCells[0].Value.ToString();
-            txtDNI.Text = dgvUsuarios.SelectedCells[5].Value.ToString();
+            txtID.Text = dgvUsuarios.SelectedCells[0].Value.ToString(); // Selecciona ID en la celda 0
+            txtDNI.Text = dgvUsuarios.SelectedCells[5].Value.ToString(); // Selecciona DNI en la celda 5
 
 
 

@@ -36,7 +36,9 @@ namespace Vista
            
 
         }
-        string password;
+
+
+        string password; // Variable password
         
 
 
@@ -51,7 +53,7 @@ namespace Vista
 
                     cn.Open();
 
-                    string query = "select CONTRASENA from USUARIOS where EMAIL = '" + txtEmail.Text + "'";
+                    string query = "select CONTRASENA from USUARIOS where EMAIL = '" + txtEmail.Text + "'"; // Selecciona contraseña del mail escrito
 
 
 
@@ -66,14 +68,14 @@ namespace Vista
 
                         if (reader.Read())
                         {
-                            password = reader["CONTRASENA"].ToString();
+                            password = reader["CONTRASENA"].ToString(); // Paswword es igual a la contraseña de la base de datos
 
-                            string query2 = "select EMAIL, CONTRASENA from USUARIOS where EMAIL = @vEMAIL and CONTRASENA = @vCONTRASENA";
+                            string query2 = "select EMAIL, CONTRASENA from USUARIOS where EMAIL = @vEMAIL and CONTRASENA = @vCONTRASENA"; // Verifica que email y contraseña esten en el mismo registro
 
                             using (SQLiteCommand cmd2 = new SQLiteCommand(query2, cn))
                             {
 
-                                string passwordCompare = EncriptarPassBD(txtPassword.Text);
+                                string passwordCompare = EncriptarPassBD(txtPassword.Text); // Encripta la contraseña escrita
 
                                 cmd2.Parameters.AddWithValue("@vEMAIL", txtEmail.Text);
                                 cmd2.Parameters.AddWithValue("@vCONTRASENA", passwordCompare);
@@ -81,15 +83,15 @@ namespace Vista
 
 
 
-                                if (password == passwordCompare)
-                                {
+                                if (password == passwordCompare) // Compara que sean iguales
+                                    {
                                     using (SQLiteDataReader reader2 = cmd2.ExecuteReader())
                                     {
 
                                         if (reader2.Read())
                                         {
 
-                                            string queryAdmin = "select EMAIL, ADMIN from USUARIOS where EMAIL = @vEMAIL and ADMIN = @vADMIN ";
+                                            string queryAdmin = "select EMAIL, ADMIN from USUARIOS where EMAIL = @vEMAIL and ADMIN = @vADMIN "; // Verifica si es admin o no
 
                                             SQLiteCommand cmd3 = new SQLiteCommand(queryAdmin, cn);
                                             cmd3.Parameters.AddWithValue("@vEMAIL", txtEmail.Text);
@@ -238,15 +240,6 @@ namespace Vista
                 }
 
             }
-        }
-
-        private void txtEmail_Enter(object sender, EventArgs e)
-        {
-        }
-
-        private void txtPassword_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)

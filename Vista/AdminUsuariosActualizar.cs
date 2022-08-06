@@ -109,7 +109,8 @@ namespace Vista
             }
 
         }
-        string selectedID;
+
+        string selectedID; // Variable para poder modificar datos
 
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -134,7 +135,7 @@ namespace Vista
                     MessageBox.Show("Usuario acutalizado correctamente" + AcceptButton);
                     cn.Close();
 
-                        btnCancel_Click(sender, e);
+                        btnCancel_Click(sender, e); // Cierra
                         
                 }
 
@@ -156,7 +157,7 @@ namespace Vista
             string Y = "Y";
             string N = "N";
 
-            bool admin = chkAdmin.Checked.Equals(true);
+            bool admin = chkAdmin.Checked.Equals(true); // Es admin o no
 
 
             if (admin)
