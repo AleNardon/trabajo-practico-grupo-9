@@ -174,7 +174,7 @@ namespace Vista
                 else
                 {
                     return false;
-                }
+                } 
             }
             else
             {

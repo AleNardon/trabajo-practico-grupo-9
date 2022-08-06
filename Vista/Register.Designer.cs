@@ -48,6 +48,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblArroba = new System.Windows.Forms.Label();
             this.lblPunto = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -243,7 +245,7 @@
             this.lblArroba.AutoSize = true;
             this.lblArroba.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblArroba.ForeColor = System.Drawing.Color.Red;
-            this.lblArroba.Location = new System.Drawing.Point(37, 255);
+            this.lblArroba.Location = new System.Drawing.Point(18, 255);
             this.lblArroba.Name = "lblArroba";
             this.lblArroba.Size = new System.Drawing.Size(102, 17);
             this.lblArroba.TabIndex = 16;
@@ -254,11 +256,29 @@
             this.lblPunto.AutoSize = true;
             this.lblPunto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPunto.ForeColor = System.Drawing.Color.Red;
-            this.lblPunto.Location = new System.Drawing.Point(203, 255);
+            this.lblPunto.Location = new System.Drawing.Point(128, 255);
             this.lblPunto.Name = "lblPunto";
             this.lblPunto.Size = new System.Drawing.Size(124, 17);
             this.lblPunto.TabIndex = 17;
             this.lblPunto.Text = "No contiene punto";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(269, 258);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(90, 13);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "* Ejemplo de mail:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(269, 284);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(133, 13);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "ejemplo@ejemplohost.com";
             // 
             // Register
             // 
@@ -267,6 +287,8 @@
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(447, 610);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lblPunto);
             this.Controls.Add(this.lblArroba);
             this.Controls.Add(this.btnCancelar);
@@ -319,5 +341,7 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label lblArroba;
         private System.Windows.Forms.Label lblPunto;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

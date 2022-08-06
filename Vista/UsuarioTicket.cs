@@ -23,9 +23,13 @@ namespace Vista
         string precioAuto;
         string precioMoto;
 
+        DateTime fecha;
+
+
+
         private void Usuario_Load(object sender, EventArgs e)
         {
-            DateTime fecha = DateTime.Now; 
+            fecha = DateTime.Now; 
             txtFecha.Text = fecha.ToString("dd/MM/yyyy");
             cmbUsuario.SelectedIndex = 0;
 
@@ -68,25 +72,59 @@ namespace Vista
                 cn.Close();
             }
 
+            using (SQLiteConnection cn = new SQLiteConnection(conexion))
+            {
+                cn.Open();
+                string query = "select NOMBRE from USUARIOS where ID = " + Datos.activeID;
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, cn))
+                {
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Vendedor = reader["NOMBRE"].ToString();
+                            reader.Close();
+                            cn.Close();
+
+                        } else
+                        {
+                            reader.Close();
+                            cn.Close();
+                        }
+
+                    }
+                }
+            }
+
 
 
         }
+
+        string Vendedor;
 
         private void cmbUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbUsuario.SelectedIndex == 1)
             {
-                txtTarifas.Text = precioCamion;  
+                txtTarifas.Text = precioCamion;
+                tarifaSeleccionada = precioCamion;
+
             }
             if (cmbUsuario.SelectedIndex == 2)
             {
                 txtTarifas.Text = precioAuto;
+                tarifaSeleccionada = precioAuto;
+
             }
             if (cmbUsuario.SelectedIndex == 3)
             {
                 txtTarifas.Text = precioMoto; 
+                tarifaSeleccionada = precioMoto;
             }
         }
+
+        string tarifaSeleccionada;
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -101,31 +139,52 @@ namespace Vista
 
         private void btnContinuar_Click(object sender, EventArgs e)
         {
-            
+            fecha.ToString();
+
+            SQLiteConnection cn = new SQLiteConnection(conexion);
+            try
+            {
+                string query = "insert into TICKETS (VENDEDOR,  VEHICULO, TARIFA, PATENTE, FECHA) values ('" + Vendedor + "','" + cmbUsuario.SelectedIndex + "','" + tarifaSeleccionada + "' ,'" + txtPatente.Text + "', '" + fecha + "')";
+                SQLiteDataAdapter da = new SQLiteDataAdapter(query, cn);
+                cn.Open();
+
+                da.SelectCommand.ExecuteNonQuery();
+                MessageBox.Show("Ticket creado con exito");
+
+
+
+            }
+
+            catch
+            {
+                if (string.IsNullOrEmpty(txtPatente.Text))
+                {
+                    MessageBox.Show("Complete el campo de la patente");
+                }
+
+                else if (txtPatente.Text.Length < 6)
+                {
+                    MessageBox.Show("La patente no puede tener menos de 6 dígitos");
+                }
+
+                else if (cmbUsuario.SelectedIndex == 0)
+                {
+                    MessageBox.Show("Seleccione un tipo de vehículo");
+                }
+
+                
+
+            } finally
+            {
+                cn.Close();
+            }
+
             
                
             
            
             
-                if (string.IsNullOrEmpty(txtPatente.Text))
-                {
-                    MessageBox.Show("Complete el campo de la patente");
-                }
                 
-                else if (txtPatente.Text.Length < 6)
-                    {
-                        MessageBox.Show("La patente no puede tener menos de 6 dígitos");
-                    }
-
-            else if (cmbUsuario.SelectedIndex == 0)
-            {
-                MessageBox.Show("Seleccione un tipo de vehículo");
-            }
-
-            else
-            {
-                MessageBox.Show("Se imprimió tu ticket");
-            }
                 
                 
             }
