@@ -53,23 +53,24 @@ namespace Vista
                         if (reader.Read())
                         {
                             precioCamion = reader["CAMION"].ToString();
-                           precioAuto = reader["AUTO"].ToString();
+                            Datos.precioCamion = precioCamion;
+
+                            precioAuto = reader["AUTO"].ToString();
+                            Datos.precioAuto = precioAuto;
+
                             precioMoto = reader["MOTO"].ToString();
+                            Datos.precioMoto = precioMoto;
+
                             reader.Close();
                             cn.Close();
 
 
 
-                        }
+                        } 
 
                     }
                 }
 
-
-
-
-
-                cn.Close();
             }
 
             using (SQLiteConnection cn = new SQLiteConnection(conexion))
@@ -84,13 +85,11 @@ namespace Vista
                         if (reader.Read())
                         {
                             Vendedor = reader["NOMBRE"].ToString();
+                            Datos.vendedor = reader["NOMBRE"].ToString();
+
                             reader.Close();
                             cn.Close();
 
-                        } else
-                        {
-                            reader.Close();
-                            cn.Close();
                         }
 
                     }
@@ -110,17 +109,27 @@ namespace Vista
                 txtTarifas.Text = precioCamion;
                 tarifaSeleccionada = precioCamion;
 
+                Datos.selectedVehicle = "Camion";
+
             }
             if (cmbUsuario.SelectedIndex == 2)
             {
                 txtTarifas.Text = precioAuto;
                 tarifaSeleccionada = precioAuto;
 
+                Datos.selectedVehicle = "Auto";
+
+
+
             }
             if (cmbUsuario.SelectedIndex == 3)
             {
                 txtTarifas.Text = precioMoto; 
                 tarifaSeleccionada = precioMoto;
+
+                Datos.selectedVehicle = "Moto";
+
+
             }
         }
 
@@ -139,24 +148,16 @@ namespace Vista
 
         private void btnContinuar_Click(object sender, EventArgs e)
         {
-            fecha.ToString();
+
+            
+
 
             SQLiteConnection cn = new SQLiteConnection(conexion);
-            try
-            {
-                string query = "insert into TICKETS (VENDEDOR,  VEHICULO, TARIFA, PATENTE, FECHA) values ('" + Vendedor + "','" + cmbUsuario.SelectedIndex + "','" + tarifaSeleccionada + "' ,'" + txtPatente.Text + "', '" + fecha + "')";
-                SQLiteDataAdapter da = new SQLiteDataAdapter(query, cn);
-                cn.Open();
-
-                da.SelectCommand.ExecuteNonQuery();
-                MessageBox.Show("Ticket creado con exito");
 
 
+          
 
-            }
-
-            catch
-            {
+            
                 if (string.IsNullOrEmpty(txtPatente.Text))
                 {
                     MessageBox.Show("Complete el campo de la patente");
@@ -170,25 +171,34 @@ namespace Vista
                 else if (cmbUsuario.SelectedIndex == 0)
                 {
                     MessageBox.Show("Seleccione un tipo de vehículo");
-                }
-
-                
-
-            } finally
+                } else
             {
-                cn.Close();
+                fecha.ToString();
+
+                string query = "insert into TICKETS (VENDEDOR,  VEHICULO, TARIFA, PATENTE, FECHA) values ('" + Vendedor + "','" + Datos.selectedVehicle + "','" + tarifaSeleccionada + "' ,'" + txtPatente.Text + "', '" + fecha + "')";
+                SQLiteDataAdapter da = new SQLiteDataAdapter(query, cn);
+                cn.Open();
+
+                da.SelectCommand.ExecuteNonQuery();
+
+                Datos.patente = txtPatente.Text;
+                Datos.fecha = txtFecha.Text;
+
+                UsuarioTicketDescargar download = new UsuarioTicketDescargar();
+                download.Show();
+
+
+
+            cn.Close();
+
             }
 
-            
-               
-            
-           
-            
-                
-                
-                
-            }
-            
+
+
+
+
         }
+
+    }
     }
 
