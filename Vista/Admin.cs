@@ -66,5 +66,14 @@ namespace Vista
 
             this.Show();
         }
+
+        private void btnVerTickets_Click(object sender, EventArgs e)
+        {
+            AdminTickets admTicket = new AdminTickets();
+            this.Hide();
+            admTicket.ShowDialog();
+
+            this.Show();
+        }
     }
 }
