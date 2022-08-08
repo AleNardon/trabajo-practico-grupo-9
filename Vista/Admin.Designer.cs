@@ -34,6 +34,7 @@
             this.btnTicket = new System.Windows.Forms.Button();
             this.btnModificarDatos = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.btnVerTickets = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnUsuarios
@@ -76,7 +77,7 @@
             this.btnTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTicket.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnTicket.Location = new System.Drawing.Point(33, 93);
+            this.btnTicket.Location = new System.Drawing.Point(33, 154);
             this.btnTicket.Name = "btnTicket";
             this.btnTicket.Size = new System.Drawing.Size(189, 44);
             this.btnTicket.TabIndex = 5;
@@ -108,7 +109,7 @@
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSalir.Location = new System.Drawing.Point(33, 152);
+            this.btnSalir.Location = new System.Drawing.Point(33, 214);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(399, 44);
             this.btnSalir.TabIndex = 7;
@@ -116,11 +117,28 @@
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // btnVerTickets
+            // 
+            this.btnVerTickets.BackColor = System.Drawing.Color.Navy;
+            this.btnVerTickets.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVerTickets.FlatAppearance.BorderSize = 0;
+            this.btnVerTickets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerTickets.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnVerTickets.Location = new System.Drawing.Point(33, 93);
+            this.btnVerTickets.Name = "btnVerTickets";
+            this.btnVerTickets.Size = new System.Drawing.Size(189, 44);
+            this.btnVerTickets.TabIndex = 8;
+            this.btnVerTickets.Text = "Ver Tickets";
+            this.btnVerTickets.UseVisualStyleBackColor = false;
+            this.btnVerTickets.Click += new System.EventHandler(this.btnVerTickets_Click);
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 208);
+            this.ClientSize = new System.Drawing.Size(487, 290);
+            this.Controls.Add(this.btnVerTickets);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnModificarDatos);
             this.Controls.Add(this.btnTicket);
@@ -144,5 +162,6 @@
         private System.Windows.Forms.Button btnTicket;
         private System.Windows.Forms.Button btnModificarDatos;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnVerTickets;
     }
 }
