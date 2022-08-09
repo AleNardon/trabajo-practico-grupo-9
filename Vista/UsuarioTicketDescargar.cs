@@ -29,14 +29,7 @@ namespace Vista
 
         }
 
-        List<Class1> lista = new List<Class1>();
-
-        private void llenar()
-        {
-
         
-        }
-
         //devuelve el la direccion home dependiendo el sistema operativo que tengas
         public static string getHomePath()
         {
@@ -79,7 +72,7 @@ namespace Vista
             doc.Open();
 
             //se define autor y titulo 
-            doc.AddAuthor("Juan");
+            doc.AddAuthor("Chimichanga");
             doc.AddTitle("Peaje");
 
             //Se define fuente
